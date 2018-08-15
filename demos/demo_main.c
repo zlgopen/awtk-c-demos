@@ -24,8 +24,6 @@
 #include "demos/resource.h"
 #include "base/system_info.h"
 
-ret_t application_init(void);
-
 #ifdef USE_GUI_MAIN
 int gui_app_start(int lcd_w, int lcd_h) {
   tk_init(lcd_w, lcd_h);

@@ -10,7 +10,7 @@
 .sconsign.dblite
 lib
 tags
-bin/run*
+bin/demo*
 filter.json
 .vscode
 3rd/build
