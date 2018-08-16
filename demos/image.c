@@ -22,7 +22,7 @@
 #include "base/image.h"
 #include "base/window.h"
 
-widget_t* create_image(widget_t* win, const char* image_name, image_draw_type_t draw_type) { 
+widget_t* create_image(widget_t* win, const char* image_name, image_draw_type_t draw_type) {
   widget_t* image = image_create(win, 0, 0, 0, 0);
 
   widget_use_style(image, "border");
@@ -42,18 +42,17 @@ void application_init() {
 
   image = create_image(win, "earth", IMAGE_DRAW_CENTER);
   image = create_image(win, "earth", IMAGE_DRAW_SCALE_AUTO);
-  
+
   image = create_image(win, "1", IMAGE_DRAW_SCALE);
   image = create_image(win, "2", IMAGE_DRAW_SCALE_W);
   image = create_image(win, "3", IMAGE_DRAW_SCALE_H);
-  
+
   image = create_image(win, "bricks", IMAGE_DRAW_REPEAT);
   image = create_image(win, "bricks", IMAGE_DRAW_REPEAT_X);
   image = create_image(win, "bricks", IMAGE_DRAW_REPEAT_Y);
-  
+
   widget_set_children_layout_params(win, "rows:3 cols:3 margin:2 spacing:2");
   widget_layout(win);
 }
 
 #include "demo_main.c"
-
