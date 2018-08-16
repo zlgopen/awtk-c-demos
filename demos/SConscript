@@ -9,5 +9,7 @@ env.Program(os.path.join(BIN_DIR, 'demo_button'), ['button.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_check_button'), ['check_button.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_dialog'), ['dialog.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_edit'), ['edit.c'])
+env.Program(os.path.join(BIN_DIR, 'demo_image'), ['image.c'])
+env.Program(os.path.join(BIN_DIR, 'demo_rich_text'), ['rich_text.c'])
 
 

@@ -21,21 +21,18 @@
 
 #include "base/button.h"
 #include "base/window.h"
-
-static ret_t on_click(void* ctx, event_t* e) {
-  log_debug("on_click\n");
-  return RET_OK;
-}
+#include "rich_text/rich_text.h"
 
 void application_init() {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
-  widget_t* ok = button_create(win, 0, 0, 0, 0);
+  widget_t* rich_text = rich_text_create(win, 0, 0, 0, 0);
+  
+  rich_text_set_text(rich_text, "<image name=\"bricks\"/><font color=\"gold\" align_v=\"bottom\" size=\"24\">hello awtk!</font><font color=\"green\" size=\"20\">ProTip! The feed shows you events from people you follow and repositories you watch. nhello world. </font><font color=\"red\" size=\"20\">确定取消中文字符测试。确定。取消。中文字符测试。</font>");
 
-  widget_set_text(ok, L"ok");
-  widget_set_self_layout_params(ok, "center", "middle", "50%", "30");
-  widget_on(ok, EVT_CLICK, on_click, NULL);
 
+  widget_set_self_layout_params(rich_text, "center", "middle", "100%", "100%");
   widget_layout(win);
 }
 
 #include "demo_main.c"
+
