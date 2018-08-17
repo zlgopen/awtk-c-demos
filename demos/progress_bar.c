@@ -51,8 +51,8 @@ widget_t* create_progress_bar(widget_t* win, bool_t vertical, const char* name) 
 
 static ret_t on_timer(const timer_info_t* info) {
   widget_t* win = WIDGET(info->ctx);
-  progress_bar_t* bar1 = PROGRESS_BAR(widget_lookup(win, "bar1", TRUE));
-  progress_bar_t* bar2 = PROGRESS_BAR(widget_lookup(win, "bar2", TRUE));
+  progress_bar_t* bar1 = PROGRESS_BAR(widget_child(win, "bar1"));
+  progress_bar_t* bar2 = PROGRESS_BAR(widget_child(win, "bar2"));
 
   if (bar1->value < 100) {
     progress_bar_set_value(WIDGET(bar1), bar1->value + 5);
