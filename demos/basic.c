@@ -1,0 +1,74 @@
+/**
+ * File:   basic.c
+ * Author: AWTK Develop Team
+ * Brief:  demo for open window and install event handlers
+ *
+ * Copyright (c) 2018 - 2018  Guangzhou ZHIYUAN Electronics Co.,Ltd.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * License file for more details.
+ *
+ */
+
+/**
+ * History:
+ * ================================================================
+ * 2018-08-18 Li XianJing <xianjimli@hotmail.com> created
+ *
+ */
+
+#include "awtk.h"
+#include "base/label.h"
+#include "base/window.h"
+#include "base/progress_bar.h"
+
+static ret_t on_inc(void* ctx, event_t* e) {
+  widget_t* win = WIDGET(ctx);
+  widget_t* bar1 = widget_child(win, "bar1");
+  widget_t* bar2 = widget_child(win, "bar2");
+
+  progress_bar_add_value(bar1, 10);
+  progress_bar_add_value(bar2, 10);
+
+  return RET_OK;
+}
+
+static ret_t on_dec(void* ctx, event_t* e) {
+  widget_t* win = WIDGET(ctx);
+  widget_t* bar1 = widget_child(win, "bar1");
+  widget_t* bar2 = widget_child(win, "bar2");
+
+  progress_bar_add_value(bar1, -10);
+  progress_bar_add_value(bar2, -10);
+
+  return RET_OK;
+}
+
+static ret_t on_close(void* ctx, event_t* e) {
+  widget_t* win = WIDGET(ctx);
+  widget_t* bar1 = widget_child(win, "bar1");
+  widget_t* bar2 = widget_child(win, "bar2");
+
+  log_debug("bar1->value=%d\n", (int)(PROGRESS_BAR(bar1)->value));
+  log_debug("bar2->value=%d\n", (int)(PROGRESS_BAR(bar2)->value));
+
+  tk_quit();
+
+  return RET_OK;
+}
+
+
+ret_t application_init() {
+  widget_t* win = window_open("basic");
+
+  widget_child_on(win, "inc_value", EVT_CLICK, on_inc, win);
+  widget_child_on(win, "dec_value", EVT_CLICK, on_dec, win);
+  widget_child_on(win, "close", EVT_CLICK, on_close, win);
+
+  return RET_OK;
+}
+
+#include "demo_main.c"
+
