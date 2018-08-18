@@ -22,15 +22,14 @@
 #include "awtk.h"
 #include "base/label.h"
 #include "base/window.h"
-#include "base/progress_bar.h"
 
 static ret_t on_inc(void* ctx, event_t* e) {
   widget_t* win = WIDGET(ctx);
   widget_t* bar1 = widget_child(win, "bar1");
   widget_t* bar2 = widget_child(win, "bar2");
 
-  progress_bar_add_value(bar1, 10);
-  progress_bar_add_value(bar2, 10);
+  widget_add_value(bar1, 10);
+  widget_add_value(bar2, 10);
 
   return RET_OK;
 }
@@ -40,8 +39,8 @@ static ret_t on_dec(void* ctx, event_t* e) {
   widget_t* bar1 = widget_child(win, "bar1");
   widget_t* bar2 = widget_child(win, "bar2");
 
-  progress_bar_add_value(bar1, -10);
-  progress_bar_add_value(bar2, -10);
+  widget_add_value(bar1, -10);
+  widget_add_value(bar2, -10);
 
   return RET_OK;
 }
@@ -51,8 +50,8 @@ static ret_t on_close(void* ctx, event_t* e) {
   widget_t* bar1 = widget_child(win, "bar1");
   widget_t* bar2 = widget_child(win, "bar2");
 
-  log_debug("bar1->value=%d\n", (int)(PROGRESS_BAR(bar1)->value));
-  log_debug("bar2->value=%d\n", (int)(PROGRESS_BAR(bar2)->value));
+  log_debug("bar1->value=%d\n", (int)(widget_get_value(bar1)));
+  log_debug("bar2->value=%d\n", (int)(widget_get_value(bar2)));
 
   tk_quit();
 
