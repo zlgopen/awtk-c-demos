@@ -26,14 +26,14 @@
 
 #ifdef USE_GUI_MAIN
 int gui_app_start(int lcd_w, int lcd_h) {
-  tk_init(lcd_w, lcd_h);
+  tk_init(lcd_w, lcd_h, APP_MOBILE, NULL, NULL);
 #elif defined(WIN32)
 #include <windows.h>
 int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hprevinstance, LPSTR lpcmdline, int ncmdshow) {
-  tk_init(320, 480);
+  tk_init(320, 480, APP_SIMULATOR, NULL, RES_ROOT);
 #else
 int main(void) {
-  tk_init(320, 480);
+  tk_init(320, 480, APP_SIMULATOR, NULL, RES_ROOT);
 #endif
 
 //#define WITH_LCD_PORTRAIT 1

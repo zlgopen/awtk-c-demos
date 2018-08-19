@@ -14,6 +14,8 @@ TK_TOOLS_ROOT = os.path.join(TK_ROOT, 'tools')
 TK_BIN_DIR=os.path.join(TK_ROOT, 'bin')
 TK_LIB_DIR=os.path.join(TK_ROOT, 'lib')
 
+RES_ROOT = os.path.normpath(TK_ROOT + '/demos')
+
 os.environ['TK_C_ROOT'] = TK_C_ROOT;
 os.environ['BIN_DIR'] = TK_C_BIN_DIR;
 os.environ['LIB_DIR'] = TK_C_LIB_DIR;
@@ -30,15 +32,16 @@ OS_SUBSYSTEM_WINDOWS=''
 OS_LINKFLAGS=''
 OS_LIBS=['SDL2', 'glad', 'stdc++', 'pthread', 'm']
 
-COMMON_CCFLAGS = ' -DHAS_STD_MALLOC -DHAS_STDIO '
+COMMON_CCFLAGS = ' -DHAS_STD_MALLOC -DHAS_STDIO -DRES_ROOT=\"\\\"'+RES_ROOT+'\\\"\" '
+
 if OS_NAME == 'Darwin':
   OS_LINKFLAGS='-framework OpenGL'
   COMMON_CCFLAGS = COMMON_CCFLAGS + ' -D__APPLE__ -DHAS_PTHREAD -DMACOS'
-
+  OS_LIBS = OS_LIBS + ['stdc++', 'pthread', 'm', 'dl']
+  OS_LIBS = ['picasso', 'agg'] + OS_LIBS
 elif OS_NAME == 'Linux':
-  OS_LIBS = ['GL'] + OS_LIBS + ['dl']
+  OS_LIBS = ['GL'] + OS_LIBS + ['stdc++', 'pthread', 'm', 'dl']
   COMMON_CCFLAGS = COMMON_CCFLAGS + ' -DLINUX -DHAS_PTHREAD'
-
 elif OS_NAME == 'Windows':
   OS_LIBS=['SDL2', 'glad']
   OS_FLAGS='-DWIN32 -D_WIN32 -DWINDOWS /EHsc -D_CONSOLE  /DEBUG -DUNICODE -D_UNICODE /Od /ZI'
@@ -47,7 +50,7 @@ elif OS_NAME == 'Windows':
   OS_CPPPATH=[TK_3RD_ROOT+'/SDL2-2.0.7/']
   OS_SUBSYSTEM_CONSOLE='/SUBSYSTEM:CONSOLE  '
   OS_SUBSYSTEM_WINDOWS='/SUBSYSTEM:WINDOWS  '
-  
+
 LIBS=['resource', 'awtk', 'gpinyin', 'awtk', 'linebreak', 'nanovg'] + OS_LIBS
 
 CCFLAGS=OS_FLAGS + COMMON_CCFLAGS 
