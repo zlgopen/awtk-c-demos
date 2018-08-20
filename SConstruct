@@ -14,7 +14,7 @@ TK_TOOLS_ROOT = os.path.join(TK_ROOT, 'tools')
 TK_BIN_DIR=os.path.join(TK_ROOT, 'bin')
 TK_LIB_DIR=os.path.join(TK_ROOT, 'lib')
 
-RES_ROOT = os.path.normpath(TK_ROOT + '/demos')
+RES_ROOT = os.path.normpath(TK_ROOT + '/demos').replace("\\", "\\\\")
 
 os.environ['TK_C_ROOT'] = TK_C_ROOT;
 os.environ['BIN_DIR'] = TK_C_BIN_DIR;
