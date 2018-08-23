@@ -21,7 +21,7 @@
 
 #include "awtk.h"
 #include "base/mem.h"
-#include "demos/resource.h"
+#include "demos/assets.h"
 #include "base/system_info.h"
 
 #ifdef USE_GUI_MAIN
@@ -49,7 +49,7 @@ int main(void) {
   }
 #endif /*WITH_LCD_PORTRAIT*/
 
-  resource_init();
+  assets_init();
   application_init();
 
   tk_run();
