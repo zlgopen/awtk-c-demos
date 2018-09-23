@@ -37,10 +37,9 @@ COMMON_CCFLAGS = ' -DHAS_STD_MALLOC -DHAS_STDIO -DRES_ROOT=\"\\\"'+RES_ROOT+'\\\
 if OS_NAME == 'Darwin':
   OS_LINKFLAGS='-framework OpenGL'
   COMMON_CCFLAGS = COMMON_CCFLAGS + ' -D__APPLE__ -DHAS_PTHREAD -DMACOS'
-  OS_LIBS = OS_LIBS + ['stdc++', 'pthread', 'm', 'dl']
-  OS_LIBS = ['picasso', 'agg'] + OS_LIBS
+  OS_LIBS = OS_LIBS + ['dl']
 elif OS_NAME == 'Linux':
-  OS_LIBS = ['GL'] + OS_LIBS + ['stdc++', 'pthread', 'm', 'dl']
+  OS_LIBS = ['GL'] + OS_LIBS + ['dl']
   COMMON_CCFLAGS = COMMON_CCFLAGS + ' -DLINUX -DHAS_PTHREAD'
 elif OS_NAME == 'Windows':
   OS_LIBS=['SDL2', 'glad']
@@ -51,7 +50,7 @@ elif OS_NAME == 'Windows':
   OS_SUBSYSTEM_CONSOLE='/SUBSYSTEM:CONSOLE  '
   OS_SUBSYSTEM_WINDOWS='/SUBSYSTEM:WINDOWS  '
 
-LIBS=['assets', 'awtk', 'gpinyin', 'awtk', 'linebreak', 'nanovg'] + OS_LIBS
+LIBS=['assets', 'awtk', 'gpinyin', 'awtk', 'linebreak', 'agge', 'nanovg'] + OS_LIBS
 
 CCFLAGS=OS_FLAGS + COMMON_CCFLAGS 
 CPPPATH=[TK_ROOT, 
