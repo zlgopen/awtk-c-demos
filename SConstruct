@@ -35,22 +35,23 @@ OS_LIBS=['SDL2', 'glad', 'stdc++', 'pthread', 'm']
 COMMON_CCFLAGS = ' -DHAS_STD_MALLOC -DHAS_STDIO -DRES_ROOT=\"\\\"'+RES_ROOT+'\\\"\" '
 
 if OS_NAME == 'Darwin':
+  OS_LIBS=['stdc++', 'pthread', 'm']
   OS_LINKFLAGS='-framework OpenGL'
   COMMON_CCFLAGS = COMMON_CCFLAGS + ' -D__APPLE__ -DHAS_PTHREAD -DMACOS'
-  OS_LIBS = OS_LIBS + ['dl']
+
 elif OS_NAME == 'Linux':
-  OS_LIBS = ['GL'] + OS_LIBS + ['dl']
+  OS_LIBS = ['GL', 'stdc++', 'pthread', 'm', 'dl']
   COMMON_CCFLAGS = COMMON_CCFLAGS + ' -DLINUX -DHAS_PTHREAD'
+
 elif OS_NAME == 'Windows':
-  OS_LIBS=['SDL2', 'glad']
-  OS_FLAGS='-DWIN32 -D_WIN32 -DWINDOWS /EHsc -D_CONSOLE  /DEBUG -DUNICODE -D_UNICODE /Od /ZI'
+  OS_LIBS=['gdi32', 'user32','winmm.lib','imm32.lib','version.lib','shell32.lib','ole32.lib','Oleaut32.lib','Advapi32.lib']
+  OS_FLAGS='-DWIN32 -D_WIN32 -DWINDOWS /EHsc -D_CONSOLE  /DEBUG /Od  /FS /Z7 '
+  COMMON_CCFLAGS = COMMON_CCFLAGS + ' -DSDL_REAL_API -DSDL_HAPTIC_DISABLED -DSDL_SENSOR_DISABLED -DSDL_JOYSTICK_DISABLED '
   OS_LINKFLAGS='/MACHINE:X64 /DEBUG'
-  OS_LIBPATH=[TK_3RD_ROOT+'/SDL2-2.0.7/lib/x64']
-  OS_CPPPATH=[TK_3RD_ROOT+'/SDL2-2.0.7/']
   OS_SUBSYSTEM_CONSOLE='/SUBSYSTEM:CONSOLE  '
   OS_SUBSYSTEM_WINDOWS='/SUBSYSTEM:WINDOWS  '
-
-LIBS=['assets', 'awtk', 'gpinyin', 'awtk', 'linebreak', 'agge', 'nanovg'] + OS_LIBS
+  
+LIBS=['awtk', 'gpinyin', 'awtk', 'linebreak', 'nanovg', 'agge', 'assets', 'SDL2', 'glad'] + OS_LIBS
 
 CCFLAGS=OS_FLAGS + COMMON_CCFLAGS 
 CPPPATH=[TK_ROOT, 
