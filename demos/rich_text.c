@@ -19,9 +19,7 @@
  *
  */
 
-#include "base/button.h"
-#include "base/window.h"
-#include "rich_text/rich_text.h"
+#include "awtk.h"
 
 void application_init() {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);

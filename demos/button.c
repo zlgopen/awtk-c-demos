@@ -19,8 +19,7 @@
  *
  */
 
-#include "base/button.h"
-#include "base/window.h"
+#include "awtk.h"
 
 static ret_t on_click(void* ctx, event_t* e) {
   log_debug("on_click\n");

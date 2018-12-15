@@ -19,8 +19,7 @@
  *
  */
 
-#include "base/window.h"
-#include "base/spin_box.h"
+#include "awtk.h"
 
 static ret_t on_changed(void* ctx, event_t* evt) {
   widget_t* target = WIDGET(evt->target);

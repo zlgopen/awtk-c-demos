@@ -19,10 +19,7 @@
  *
  */
 
-#include "base/dialog.h"
-#include "base/button.h"
-#include "base/label.h"
-#include "base/window.h"
+#include "awtk.h"
 
 static ret_t on_dialog_btn_click(void* ctx, event_t* evt) {
   widget_t* win = widget_get_window(WIDGET(evt->target));

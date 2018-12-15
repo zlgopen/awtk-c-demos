@@ -20,8 +20,6 @@
  */
 
 #include "awtk.h"
-#include "base/label.h"
-#include "base/window.h"
 
 static ret_t on_inc(void* ctx, event_t* e) {
   widget_t* win = WIDGET(ctx);

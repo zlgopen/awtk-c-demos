@@ -19,8 +19,7 @@
  *
  */
 
-#include "base/label.h"
-#include "base/window.h"
+#include "awtk.h"
 
 ret_t application_init() {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);

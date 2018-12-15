@@ -20,9 +20,7 @@
  */
 
 #include "awtk.h"
-#include "base/mem.h"
 #include "demos/assets.h"
-#include "base/system_info.h"
 
 #ifdef USE_GUI_MAIN
 int gui_app_start(int lcd_w, int lcd_h) {

@@ -19,15 +19,14 @@
  *
  */
 
-#include "base/image.h"
-#include "base/window.h"
+#include "awtk.h"
 
 widget_t* create_image(widget_t* win, const char* image_name, image_draw_type_t draw_type) {
   widget_t* image = image_create(win, 0, 0, 0, 0);
 
   widget_use_style(image, "border");
   image_set_draw_type(image, draw_type);
-  image_set_image_name(image, image_name);
+  image_set_image(image, image_name);
 
   return image;
 }

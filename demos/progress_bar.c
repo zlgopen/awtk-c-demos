@@ -19,9 +19,7 @@
  *
  */
 
-#include "base/timer.h"
-#include "base/window.h"
-#include "base/progress_bar.h"
+#include "awtk.h"
 
 static ret_t on_changed(void* ctx, event_t* evt) {
   widget_t* target = WIDGET(evt->target);

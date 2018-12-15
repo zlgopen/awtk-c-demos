@@ -19,8 +19,7 @@
  *
  */
 
-#include "base/window.h"
-#include "base/check_button.h"
+#include "awtk.h"
 
 static ret_t on_changed(void* ctx, event_t* e) {
   check_button_t* btn = CHECK_BUTTON(e->target);
