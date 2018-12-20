@@ -50,7 +50,7 @@ void application_init() {
   image = create_image(win, "bricks", IMAGE_DRAW_REPEAT_X);
   image = create_image(win, "bricks", IMAGE_DRAW_REPEAT_Y);
 
-  widget_set_children_layout_params(win, "rows:3 cols:3 margin:2 spacing:2");
+  widget_set_children_layout(win, "default(r=3,c=3,m=2,s=2)");
   widget_layout(win);
 }
 
