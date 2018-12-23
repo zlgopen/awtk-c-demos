@@ -49,6 +49,7 @@ int main(void) {
 
   assets_init();
   application_init();
+  tk_ext_widgets_init();
 
   tk_run();
 
