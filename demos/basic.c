@@ -56,7 +56,6 @@ static ret_t on_close(void* ctx, event_t* e) {
   return RET_OK;
 }
 
-
 ret_t application_init() {
   widget_t* win = window_open("basic");
 
@@ -68,4 +67,3 @@ ret_t application_init() {
 }
 
 #include "demo_main.c"
-

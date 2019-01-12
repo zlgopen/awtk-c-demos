@@ -39,7 +39,7 @@ static ret_t on_paint_event(void* ctx, event_t* evt) {
 
   canvas_set_font(c, NULL, 20);
   canvas_set_text_color(c, tc);
-  canvas_draw_text(c, L"Hello AWTK", 10, 20, r.h/2);
+  canvas_draw_text(c, L"Hello AWTK", 10, 20, r.h / 2);
 
   vgcanvas_restore(vg);
 
@@ -48,7 +48,7 @@ static ret_t on_paint_event(void* ctx, event_t* evt) {
 
 void application_init() {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
-  widget_t* canvas = canvas_widget_create(win, 10, 10, win->w-20, win->h-20);
+  widget_t* canvas = canvas_widget_create(win, 10, 10, win->w - 20, win->h - 20);
 
   widget_on(canvas, EVT_PAINT, on_paint_event, canvas);
 }

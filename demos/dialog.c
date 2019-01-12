@@ -30,7 +30,7 @@ static ret_t on_dialog_btn_click(void* ctx, event_t* evt) {
   return RET_OK;
 }
 
-static ret_t on_click(void* ctx, event_t* evt) {
+static ret_t on_show_dialog(void* ctx, event_t* evt) {
   int code = 0;
   widget_t* ok = NULL;
   widget_t* cancel = NULL;
@@ -61,11 +61,16 @@ static ret_t on_click(void* ctx, event_t* evt) {
 
 void application_init() {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
-  widget_t* ok = button_create(win, 0, 0, 0, 0);
+  widget_t* show_dialog = button_create(win, 0, 0, 0, 0);
+  widget_t* show_dialog_long_press = button_create(win, 0, 0, 0, 0);
 
-  widget_set_text(ok, L"Show Dialog");
-  widget_set_self_layout_params(ok, "center", "middle", "50%", "30");
-  widget_on(ok, EVT_CLICK, on_click, NULL);
+  widget_set_text(show_dialog, L"Show Dialog");
+  widget_set_self_layout_params(show_dialog, "center", "middle:-30", "50%", "30");
+  widget_on(show_dialog, EVT_CLICK, on_show_dialog, NULL);
+
+  widget_set_text(show_dialog_long_press, L"Show Dialog On LongPress");
+  widget_set_self_layout_params(show_dialog_long_press, "center", "middle:30", "80%", "30");
+  widget_on(show_dialog_long_press, EVT_LONG_PRESS, on_show_dialog, NULL);
 
   widget_layout(win);
 }
