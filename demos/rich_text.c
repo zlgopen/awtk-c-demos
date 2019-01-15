@@ -25,7 +25,7 @@ void application_init() {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
   widget_t* rich_text = rich_text_create(win, 0, 0, 0, 0);
 
-  rich_text_set_text(rich_text,
+  widget_set_text_utf8(rich_text,
                      "<image name=\"bricks\"/><font color=\"gold\" align_v=\"bottom\" "
                      "size=\"24\">hello awtk!</font><font color=\"green\" size=\"20\">ProTip! The "
                      "feed shows you events from people you follow and repositories you watch. "
