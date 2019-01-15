@@ -20,5 +20,6 @@ env.Program(os.path.join(BIN_DIR, 'demo_combo_box'), ['combo_box.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_canvas'), ['canvas.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_image_animation'), ['image_animation.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_image_value'), ['image_value.c'])
+env.Program(os.path.join(BIN_DIR, 'demo_progress_circle'), ['progress_circle.c'])
 
 
