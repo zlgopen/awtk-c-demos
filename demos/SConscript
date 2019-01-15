@@ -25,5 +25,6 @@ env.Program(os.path.join(BIN_DIR, 'demo_progress_circle'), ['progress_circle.c']
 env.Program(os.path.join(BIN_DIR, 'demo_slide_menu'), ['slide_menu.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_slide_view'), ['slide_view.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_switch'), ['switch.c'])
+env.Program(os.path.join(BIN_DIR, 'demo_text_selector'), ['text_selector.c'])
 
 
