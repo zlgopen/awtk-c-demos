@@ -75,7 +75,7 @@ void application_init() {
   edit_set_readonly(edit4, TRUE);
 
   create_edit(win, INPUT_HEX, "hex", "", 10, 90 + 128, 228, 30);
-  create_edit(win, INPUT_EMAIL, "email", "", 10, 130 + 128, 228, 30);
+  create_edit(win, INPUT_CUSTOM, "custom", "", 10, 130 + 128, 228, 30);
 
   widget_layout(win);
 }
