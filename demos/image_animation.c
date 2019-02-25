@@ -28,7 +28,7 @@ void application_init() {
   image_animation = image_animation_create(win, 10, 10, 200, 200);
   image_animation_set_image(image_animation, "ani");
   image_animation_set_interval(image_animation, 50);
-  image_animation_set_sequence(image_animation, "123456789abc");
+  image_animation_set_range_sequence(image_animation, 1, 9);
   image_animation_play(image_animation);
 }
 
