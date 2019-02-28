@@ -38,7 +38,7 @@ void application_init() {
   image = image_create(view, 0, 0, slide_view->w, slide_view->h);
   image_set_draw_type(image, IMAGE_DRAW_CENTER);
   image_set_image(image, "2");
-  
+
   view = image_create(slide_view, 0, 0, slide_view->w, slide_view->h);
   image = image_create(view, 0, 0, slide_view->w, slide_view->h);
   image_set_draw_type(image, IMAGE_DRAW_CENTER);
