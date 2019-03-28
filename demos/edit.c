@@ -62,6 +62,7 @@ void application_init() {
 
   edit1 = create_edit(win, INPUT_TEXT, "text[3-8]", "", 10, 10, 228, 30);
   edit_set_text_limit(edit1, 3, 8);
+  edit_set_focus(edit1, TRUE);
 
   edit2 = create_edit(win, INPUT_INT, "int auto fix[1-100]", "", 10, 50, 228, 30);
   edit_set_int_limit(edit2, 1, 100, 1);
