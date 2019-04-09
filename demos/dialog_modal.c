@@ -23,13 +23,15 @@
 
 static ret_t on_dialog_btn_click(void* ctx, event_t* evt) {
   widget_t* win = widget_get_window(WIDGET(evt->target));
+  int code = (char*)ctx - (char*)NULL;
 
-  window_close(win);
+  dialog_quit(win, code);
 
   return RET_OK;
 }
 
 static ret_t on_show_dialog(void* ctx, event_t* evt) {
+  int code = 0;
   widget_t* ok = NULL;
   widget_t* cancel = NULL;
   widget_t* label = NULL;
@@ -49,6 +51,10 @@ static ret_t on_show_dialog(void* ctx, event_t* evt) {
 
   widget_on(ok, EVT_CLICK, on_dialog_btn_click, (char*)NULL + 1);
   widget_on(cancel, EVT_CLICK, on_dialog_btn_click, (char*)NULL + 2);
+
+  code = dialog_modal(dlg);
+
+  log_debug("code=%d\n", code);
 
   return RET_OK;
 }
