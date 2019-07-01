@@ -1,4 +1,4 @@
-/**
+﻿/**
  * File:   edit.c
  * Author: AWTK Develop Team
  * Brief:  edit demo
@@ -37,7 +37,7 @@ static ret_t on_changing(void* ctx, event_t* evt) {
   return RET_OK;
 }
 
-widget_t* create_edit(widget_t* win, int type, const char* name, const char* text, int x, int y,
+widget_t* create_edit(widget_t* win, int type, const char* name, const wchar_t* text, int x, int y,
                       int w, int h) {
   widget_t* edit = edit_create(win, x, y, w, h);
 
@@ -45,7 +45,7 @@ widget_t* create_edit(widget_t* win, int type, const char* name, const char* tex
   widget_on(edit, EVT_VALUE_CHANGING, on_changing, NULL);
 
   widget_set_name(edit, name);
-  widget_set_text_utf8(edit, text);
+  widget_set_text(edit, text);
 
   edit_set_input_tips(edit, name);
   edit_set_input_type(edit, type);
@@ -60,23 +60,23 @@ void application_init() {
   widget_t* edit4 = NULL;
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
 
-  edit1 = create_edit(win, INPUT_TEXT, "text[3-8]", "", 10, 10, 228, 30);
+  edit1 = create_edit(win, INPUT_TEXT, "text[3-8]", L"中文 abc", 10, 10, 228, 30);
   edit_set_text_limit(edit1, 3, 8);
   edit_set_focus(edit1, TRUE);
 
-  edit2 = create_edit(win, INPUT_INT, "int auto fix[1-100]", "", 10, 50, 228, 30);
+  edit2 = create_edit(win, INPUT_INT, "int auto fix[1-100]", L"", 10, 50, 228, 30);
   edit_set_int_limit(edit2, 1, 100, 1);
   edit_set_auto_fix(edit2, TRUE);
 
-  edit3 = create_edit(win, INPUT_FLOAT, "float[1-10]", "1.23", 10, 90, 228, 30);
+  edit3 = create_edit(win, INPUT_FLOAT, "float[1-10]", L"1.23", 10, 90, 228, 30);
   edit_set_float_limit(edit3, 1, 10, 1);
 
-  create_edit(win, INPUT_PASSWORD, "password", "", 10, 10 + 128, 228, 30);
-  edit4 = create_edit(win, INPUT_TEXT, "text", "readonly", 10, 50 + 128, 228, 30);
+  create_edit(win, INPUT_PASSWORD, "password", L"", 10, 10 + 128, 228, 30);
+  edit4 = create_edit(win, INPUT_TEXT, "text", L"readonly", 10, 50 + 128, 228, 30);
   edit_set_readonly(edit4, TRUE);
 
-  create_edit(win, INPUT_HEX, "hex", "", 10, 90 + 128, 228, 30);
-  create_edit(win, INPUT_CUSTOM, "custom", "", 10, 130 + 128, 228, 30);
+  create_edit(win, INPUT_HEX, "hex", L"", 10, 90 + 128, 228, 30);
+  create_edit(win, INPUT_CUSTOM, "custom", L"", 10, 130 + 128, 228, 30);
 
   widget_layout(win);
 }

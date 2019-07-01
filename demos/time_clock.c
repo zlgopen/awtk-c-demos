@@ -1,4 +1,4 @@
-/**
+﻿/**
  * File:   time_clock.c
  * Author: AWTK Develop Team
  * Brief:  time_clock demo

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * File:   slide_view.c
  * Author: AWTK Develop Team
  * Brief:  gif image demo

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * File:   slide_menu.c
  * Author: AWTK Develop Team
  * Brief:  gif image demo

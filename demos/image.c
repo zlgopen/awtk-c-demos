@@ -1,4 +1,4 @@
-/**
+﻿/**
  * File:   image.c
  * Author: AWTK Develop Team
  * Brief:  image demo

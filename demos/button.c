@@ -1,4 +1,4 @@
-/**
+﻿/**
  * File:   button.c
  * Author: AWTK Develop Team
  * Brief:  button demo

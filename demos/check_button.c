@@ -1,4 +1,4 @@
-/**
+﻿/**
  * File:   check_button.c
  * Author: AWTK Develop Team
  * Brief:  check_button demo

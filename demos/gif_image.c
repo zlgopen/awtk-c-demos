@@ -1,4 +1,4 @@
-/**
+﻿/**
  * File:   gif_image.c
  * Author: AWTK Develop Team
  * Brief:  gif image demo

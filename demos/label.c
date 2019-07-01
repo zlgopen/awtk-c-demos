@@ -1,4 +1,4 @@
-/**
+﻿/**
  * File:   label.c
  * Author: AWTK Develop Team
  * Brief:  label demo

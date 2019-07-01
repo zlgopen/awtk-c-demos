@@ -1,4 +1,4 @@
-/**
+﻿/**
  * File:   basic.c
  * Author: AWTK Develop Team
  * Brief:  demo for open window and install event handlers
