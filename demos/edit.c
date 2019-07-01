@@ -69,8 +69,8 @@ void application_init() {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
   widget_t* button = button_create(win, 0, 0, 0, 0);
 
-  edit1 = create_edit(win, INPUT_TEXT, "text[3-8]", L"abc", 10, 10, 228, 30);
-  edit_set_text_limit(edit1, 3, 8);
+  edit1 = create_edit(win, INPUT_TEXT, "text[3-32]", L"abc", 10, 10, 228, 30);
+  edit_set_text_limit(edit1, 3, 32);
   edit_set_focus(edit1, TRUE);
 
   edit2 = create_edit(win, INPUT_INT, "int auto fix[1-100]", L"", 10, 50, 228, 30);
