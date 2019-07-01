@@ -53,14 +53,23 @@ widget_t* create_edit(widget_t* win, int type, const char* name, const wchar_t* 
   return edit;
 }
 
+static ret_t on_click(void* ctx, event_t* e) {
+  widget_t* edit1 = WIDGET(ctx);
+  
+  widget_set_text(edit1, L"中文　    a b c 123");
+
+  return RET_OK;
+}
+
 void application_init() {
   widget_t* edit1 = NULL;
   widget_t* edit2 = NULL;
   widget_t* edit3 = NULL;
   widget_t* edit4 = NULL;
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
+  widget_t* button = button_create(win, 0, 0, 0, 0);
 
-  edit1 = create_edit(win, INPUT_TEXT, "text[3-8]", L"中文 abc", 10, 10, 228, 30);
+  edit1 = create_edit(win, INPUT_TEXT, "text[3-8]", L"abc", 10, 10, 228, 30);
   edit_set_text_limit(edit1, 3, 8);
   edit_set_focus(edit1, TRUE);
 
@@ -77,6 +86,10 @@ void application_init() {
 
   create_edit(win, INPUT_HEX, "hex", L"", 10, 90 + 128, 228, 30);
   create_edit(win, INPUT_CUSTOM, "custom", L"", 10, 130 + 128, 228, 30);
+
+  widget_set_text(button, L"SetText");
+  widget_set_self_layout_params(button, "c", "b:60", "40%", "30");
+  widget_on(button, EVT_CLICK, on_click, edit1);
 
   widget_layout(win);
 }
