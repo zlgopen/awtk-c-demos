@@ -56,7 +56,7 @@ widget_t* create_edit(widget_t* win, int type, const char* name, const wchar_t* 
 static ret_t on_click(void* ctx, event_t* e) {
   widget_t* edit1 = WIDGET(ctx);
   
-  widget_set_text(edit1, L"中文　    a b c 123");
+  widget_set_text(edit1, L"中文 　  比 如 打 一 个 汉 字  加 一 个 空 格 再 打 一 个 汉 字   a b c 123");
 
   return RET_OK;
 }
