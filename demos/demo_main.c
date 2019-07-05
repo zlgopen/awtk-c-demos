@@ -51,9 +51,10 @@ int main(void) {
   system_info_set_default_font(system_info(), "default_full");
 #endif /*WITH_FS_RES*/
 
+  tk_ext_widgets_init();
+  
   assets_init();
   application_init();
-  tk_ext_widgets_init();
 
   tk_run();
 
