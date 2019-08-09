@@ -24,7 +24,7 @@
 static ret_t on_changed(void* ctx, event_t* evt) {
   widget_t* target = WIDGET(evt->target);
 
-  log_debug("%s changing\n", target->name);
+  log_debug("%s changed\n", target->name);
 
   return RET_OK;
 }
