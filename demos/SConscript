@@ -34,5 +34,6 @@ env.Program(os.path.join(BIN_DIR, 'demo_digit_clock'), ['digit_clock.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_mutable_image'), ['mutable_image.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_multi_windows'), ['multi_windows.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_list_item_visible'), ['list_item_visible.c'])
+env.Program(os.path.join(BIN_DIR, 'demo_widget_created_event'), ['widget_created_event.c'])
 
 
