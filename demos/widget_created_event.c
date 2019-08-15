@@ -32,11 +32,10 @@ static ret_t on_widget_created(void* ctx, event_t* e) {
 
 
 ret_t application_init() {
-  widget_t* win = NULL;
   emitter_t* emitter = EMITTER(widget_factory());
   uint32_t id = emitter_on(emitter, EVT_WIDGET_CREATED, on_widget_created, NULL);
 
-  win = window_open("basic");
+  window_open("basic");
   
   emitter_off(emitter, id);
 
