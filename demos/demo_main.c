@@ -51,6 +51,16 @@ int main(void) {
   system_info_set_default_font(system_info(), "default_full");
 #endif /*WITH_FS_RES*/
 
+#if defined(WIN32)
+#if !defined(NDEBUG)
+  {
+    AllocConsole();
+    FILE* fp = NULL;
+    freopen_s(&fp, "CONOUT$", "w+t", stdout);
+  }
+#endif /*NDEBUG*/
+#endif /*WIN32*/
+
   tk_ext_widgets_init();
   
   assets_init();
