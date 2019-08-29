@@ -37,8 +37,8 @@ static ret_t on_changing(void* ctx, event_t* evt) {
   return RET_OK;
 }
 
-widget_t* create_spin_box(widget_t* win, input_type_t type, const char* name, const char* text, int x, int y,
-                          int w, int h) {
+widget_t* create_spin_box(widget_t* win, input_type_t type, const char* name, const char* text,
+                          int x, int y, int w, int h) {
   widget_t* spin_box = spin_box_create(win, x, y, w, h);
 
   widget_on(spin_box, EVT_VALUE_CHANGED, on_changed, NULL);

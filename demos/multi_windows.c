@@ -24,7 +24,7 @@
 static ret_t on_open_window(void* ctx, event_t* evt) {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
   widget_t* label = label_create(win, 0, 0, 0, 0);
-  
+
   widget_set_prop_str(win, WIDGET_PROP_ANIM_HINT, "htranslate");
   widget_set_text(label, L"Press F2/F3 To CLose");
   widget_set_self_layout_params(label, "center", "middle", "100%", "30");

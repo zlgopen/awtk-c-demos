@@ -24,7 +24,7 @@
 static ret_t on_change(void* ctx, event_t* evt) {
   widget_t* target = WIDGET(evt->target);
 
-  if(evt->type == EVT_VALUE_CHANGING) {
+  if (evt->type == EVT_VALUE_CHANGING) {
     log_debug("%s changing\n", target->name);
   } else {
     log_debug("%s changed\n", target->name);
@@ -35,7 +35,7 @@ static ret_t on_change(void* ctx, event_t* evt) {
 
 static ret_t on_click(void* ctx, event_t* e) {
   widget_t* mledit = WIDGET(ctx);
-  
+
   widget_set_text(mledit, L"中文　    a b c 123\nnext line");
 
   return RET_OK;
@@ -44,7 +44,7 @@ static ret_t on_click(void* ctx, event_t* e) {
 void application_init() {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
 
-  widget_t* mledit = mledit_create(win, 0, 0, win->w, win->h/2);
+  widget_t* mledit = mledit_create(win, 0, 0, win->w, win->h / 2);
   widget_t* button = button_create(win, 0, 0, 0, 0);
 
   widget_set_text(mledit, L"multi line edit");

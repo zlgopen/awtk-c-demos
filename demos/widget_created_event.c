@@ -30,13 +30,12 @@ static ret_t on_widget_created(void* ctx, event_t* e) {
   return RET_OK;
 }
 
-
 ret_t application_init() {
   emitter_t* emitter = EMITTER(widget_factory());
   uint32_t id = emitter_on(emitter, EVT_WIDGET_CREATED, on_widget_created, NULL);
 
   window_open("basic");
-  
+
   emitter_off(emitter, id);
 
   return RET_OK;

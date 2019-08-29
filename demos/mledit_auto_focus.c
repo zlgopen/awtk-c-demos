@@ -23,7 +23,7 @@
 
 static ret_t on_click_set_text(void* ctx, event_t* e) {
   widget_t* mledit = WIDGET(ctx);
-  
+
   widget_set_text(mledit, L"中文　    a b c 123\nnext line");
 
   return RET_OK;
@@ -72,7 +72,7 @@ static ret_t on_window_to_foreground(void* ctx, event_t* e) {
 void application_init() {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
 
-  widget_t* mledit = mledit_create(win, 0, 0, win->w, win->h/2);
+  widget_t* mledit = mledit_create(win, 0, 0, win->w, win->h / 2);
   widget_t* set_text = button_create(win, 0, 0, 0, 0);
   widget_t* open_with_anim = button_create(win, 0, 0, 0, 0);
   widget_t* open_without_anim = button_create(win, 0, 0, 0, 0);
@@ -84,11 +84,11 @@ void application_init() {
   widget_set_text(set_text, L"SetText");
   widget_set_self_layout_params(set_text, "10", "b:60", "25%", "30");
   widget_on(set_text, EVT_CLICK, on_click_set_text, mledit);
-  
+
   widget_set_text(open_with_anim, L"Open");
   widget_set_self_layout_params(open_with_anim, "c", "b:60", "25%", "30");
   widget_on(open_with_anim, EVT_CLICK, on_click_open_window_with_anim, win);
-  
+
   widget_set_text(open_without_anim, L"Open");
   widget_set_self_layout_params(open_without_anim, "r:10", "b:60", "25%", "30");
   widget_on(open_without_anim, EVT_CLICK, on_click_open_window_without_anim, win);

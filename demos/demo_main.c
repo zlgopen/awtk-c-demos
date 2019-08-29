@@ -62,7 +62,7 @@ int main(void) {
 #endif /*WIN32*/
 
   tk_ext_widgets_init();
-  
+
   assets_init();
   application_init();
 

@@ -24,7 +24,7 @@
 static ret_t on_change(void* ctx, event_t* evt) {
   widget_t* target = WIDGET(evt->target);
 
-  if(evt->type == EVT_VALUE_CHANGING) {
+  if (evt->type == EVT_VALUE_CHANGING) {
     log_debug("%s changing\n", target->name);
   } else {
     log_debug("%s changed\n", target->name);
@@ -37,7 +37,7 @@ static ret_t on_set_text(void* ctx, event_t* e) {
   char str[32];
   widget_t* mledit = WIDGET(ctx);
   widget_t* win = widget_get_window(WIDGET(e->target));
- 
+
   tk_snprintf(str, sizeof(str), "rand:%d", random());
   widget_set_text_utf8(mledit, str);
 
@@ -61,7 +61,7 @@ static ret_t on_open_window(void* ctx, event_t* e) {
   widget_set_text(button, L"Set Random Text");
   widget_set_self_layout_params(button, "c", "b:160", "60%", "30");
   widget_on(button, EVT_CLICK, on_set_text, mledit);
-  
+
   button = button_create(win, 0, 0, 0, 0);
 
   widget_set_text(button, L"Close");
@@ -76,7 +76,7 @@ static ret_t on_open_window(void* ctx, event_t* e) {
 void application_init() {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
 
-  widget_t* mledit = mledit_create(win, 0, 0, win->w, win->h/2);
+  widget_t* mledit = mledit_create(win, 0, 0, win->w, win->h / 2);
   widget_t* button = button_create(win, 0, 0, 0, 0);
 
   widget_set_text(button, L"OpenWindow");
