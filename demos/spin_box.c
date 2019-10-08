@@ -24,7 +24,8 @@
 static ret_t on_changed(void* ctx, event_t* evt) {
   widget_t* target = WIDGET(evt->target);
 
-  log_debug("%s changing\n", target->name);
+  log_debug("%s changed: int value=%d\n", target->name, edit_get_int(target));
+  log_debug("%s changed: double value=%lf\n", target->name, edit_get_double(target));
 
   return RET_OK;
 }
@@ -32,7 +33,8 @@ static ret_t on_changed(void* ctx, event_t* evt) {
 static ret_t on_changing(void* ctx, event_t* evt) {
   widget_t* target = WIDGET(evt->target);
 
-  log_debug("%s changing\n", target->name);
+  log_debug("%s changing: value=%d\n", target->name, edit_get_int(target));
+  log_debug("%s changing: double value=%lf\n", target->name, edit_get_double(target));
 
   return RET_OK;
 }
