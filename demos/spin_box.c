@@ -68,9 +68,11 @@ void application_init() {
 
   spin_box2 = create_spin_box(win, INPUT_UINT, "uint", "", 10, 50, 228, 30);
   edit_set_int_limit(spin_box2, 1, 100, 1);
+  edit_set_int(spin_box2, 50);
 
   spin_box3 = create_spin_box(win, INPUT_FLOAT, "float", "1.23", 10, 90, 228, 30);
   edit_set_float_limit(spin_box3, 1, 10, 1);
+  edit_set_int(spin_box3, 5);
 
   spin_box4 = create_spin_box(win, INPUT_UFLOAT, "ufloat", "", 10, 10 + 128, 228, 30);
   edit_set_float_limit(spin_box4, 1, 10, 0.1);
