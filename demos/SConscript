@@ -38,5 +38,6 @@ env.Program(os.path.join(BIN_DIR, 'demo_multi_windows'), ['multi_windows.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_list_item_visible'), ['list_item_visible.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_widget_created_event'), ['widget_created_event.c'])
 env.Program(os.path.join(BIN_DIR, 'backgroud_lost_focus'), ['backgroud_lost_focus.c'])
+env.Program(os.path.join(BIN_DIR, 'demo_list_item_clone'), ['list_item_clone.c'])
 
 
