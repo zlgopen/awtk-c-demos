@@ -7,6 +7,7 @@ BIN_DIR=os.environ['BIN_DIR'];
 env.Program(os.path.join(BIN_DIR, 'demo_label'), ['label.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_button'), ['button.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_check_button'), ['check_button.c'])
+env.Program(os.path.join(BIN_DIR, 'demo_clip_view'), ['clip_view.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_dialog'), ['dialog.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_dialog_modal'), ['dialog_modal.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_edit'), ['edit.c'])
