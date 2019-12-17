@@ -34,33 +34,11 @@ int main(void) {
   tk_init(320, 480, APP_SIMULATOR, NULL, RES_ROOT);
 #endif
 
-//#define WITH_LCD_PORTRAIT 1
-#if defined(USE_GUI_MAIN) && defined(WITH_LCD_PORTRAIT)
-  if (lcd_w > lcd_h) {
-    tk_set_lcd_orientation(LCD_ORIENTATION_90);
-  }
-#endif /*WITH_LCD_PORTRAIT*/
-
-#ifdef WITH_LCD_LANDSCAPE
-  if (lcd_w < lcd_h) {
-    tk_set_lcd_orientation(LCD_ORIENTATION_90);
-  }
-#endif /*WITH_LCD_PORTRAIT*/
-
 #ifdef WITH_FS_RES
   system_info_set_default_font(system_info(), "default_full");
 #endif /*WITH_FS_RES*/
 
-#if defined(WIN32)
-#if !defined(NDEBUG)
-  {
-    AllocConsole();
-    FILE* fp = NULL;
-    freopen_s(&fp, "CONOUT$", "w+t", stdout);
-  }
-#endif /*NDEBUG*/
-#endif /*WIN32*/
-
+  TK_ENABLE_CONSOLE();
   tk_ext_widgets_init();
 
   assets_init();
