@@ -43,5 +43,6 @@ env.Program(os.path.join(BIN_DIR, 'backgroud_lost_focus'), ['backgroud_lost_focu
 env.Program(os.path.join(BIN_DIR, 'demo_list_item_clone'), ['list_item_clone.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_list_item_click'), ['list_item_click.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_key_event'), ['key_event.c'])
+env.Program(os.path.join(BIN_DIR, 'demo_unload_image'), ['unload_image.c'])
 
 
