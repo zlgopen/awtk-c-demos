@@ -26,7 +26,7 @@ static ret_t on_clear_image(void* ctx, event_t* e) {
   image_manager_t* im = widget_get_image_manager(button);
 
   image_manager_unload_unused(im, 0);
-  log_debug("unload image\n");
+  log_debug("unload image done\n");
 
   return RET_OK;
 }
@@ -41,8 +41,12 @@ void application_init() {
   widget_t* button = button_create(win, 0, 0, 0, 0);
   widget_t* image = image_create(win, 0, 0, 0, 0);
  
-  image_set_image(image, "earth");
+  image_set_image(image, "file://"APP_ROOT"/demos/zh.png");
   widget_set_self_layout_params(image, "center", "middle:-100", "100", "100");
+  
+  image = image_create(win, 0, 0, 0, 0);
+  image_set_image(image, "earth");
+  widget_set_self_layout_params(image, "center", "middle:-50", "100", "100");
 
   widget_set_text(button, L"clear image");
   widget_set_self_layout_params(button, "center", "middle", "50%", "30");

@@ -16,7 +16,7 @@ os.environ['LIB_DIR'] = APP_LIB_DIR;
 
 APP_LIBS = ['assets']
 APP_LIBPATH = [APP_LIB_DIR]
-APP_CCFLAGS = '-DRES_ROOT=\"\\\"'+RES_ROOT+'\\\"\" '
+APP_CCFLAGS = '-DRES_ROOT=\"\\\"'+RES_ROOT+'\\\"\" -DAPP_ROOT=\"\\\"'+APP_ROOT+'\\\"\" '
 
 DefaultEnvironment(
   CPPPATH   = awtk.CPPPATH,
