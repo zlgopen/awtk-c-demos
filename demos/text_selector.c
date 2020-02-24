@@ -26,7 +26,7 @@ static ret_t on_changed(void* ctx, event_t* e) {
   return RET_OK;
 }
 
-void application_init() {
+ret_t application_init() {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
 
   widget_t* ts = text_selector_create(win, 10, 10, 80, 150);
@@ -35,6 +35,13 @@ void application_init() {
   widget_use_style(ts, "dark");
 
   widget_on(ts, EVT_VALUE_CHANGED, on_changed, NULL);
+  
+  return RET_OK;
 }
 
-#include "demo_main.c"
+ret_t application_exit() {
+  log_debug("application_exit\n");
+  return RET_OK;
+}
+
+#include "awtk_main.inc"

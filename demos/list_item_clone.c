@@ -50,4 +50,9 @@ ret_t application_init() {
   return RET_OK;
 }
 
-#include "demo_main.c"
+ret_t application_exit() {
+  log_debug("application_exit\n");
+  return RET_OK;
+}
+
+#include "awtk_main.inc"

@@ -31,7 +31,7 @@ static ret_t on_long_press(void* ctx, event_t* e) {
   return RET_OK;
 }
 
-void application_init() {
+ret_t application_init() {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
   widget_t* ok = button_create(win, 0, 0, 0, 0);
 
@@ -41,6 +41,14 @@ void application_init() {
   widget_on(ok, EVT_LONG_PRESS, on_long_press, NULL);
 
   widget_layout(win);
+  
+  return RET_OK;
 }
 
-#include "demo_main.c"
+ret_t application_exit() {
+  log_debug("application_exit\n");
+  return RET_OK;
+}
+
+#include "awtk_main.inc"
+

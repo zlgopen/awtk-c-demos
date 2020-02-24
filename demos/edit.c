@@ -62,7 +62,7 @@ static ret_t on_click(void* ctx, event_t* e) {
   return RET_OK;
 }
 
-void application_init() {
+ret_t application_init() {
   widget_t* edit1 = NULL;
   widget_t* edit2 = NULL;
   widget_t* edit3 = NULL;
@@ -93,6 +93,13 @@ void application_init() {
   widget_on(button, EVT_CLICK, on_click, edit1);
 
   widget_layout(win);
+  
+  return RET_OK;
 }
 
-#include "demo_main.c"
+ret_t application_exit() {
+  log_debug("application_exit\n");
+  return RET_OK;
+}
+
+#include "awtk_main.inc"

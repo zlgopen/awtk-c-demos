@@ -21,7 +21,7 @@
 
 #include "awtk.h"
 
-void application_init() {
+ret_t application_init() {
   widget_t* image_animation = NULL;
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
 
@@ -30,6 +30,13 @@ void application_init() {
   image_animation_set_interval(image_animation, 50);
   image_animation_set_range_sequence(image_animation, 1, 9);
   image_animation_play(image_animation);
+  
+  return RET_OK;
 }
 
-#include "demo_main.c"
+ret_t application_exit() {
+  log_debug("application_exit\n");
+  return RET_OK;
+}
+
+#include "awtk_main.inc"

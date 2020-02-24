@@ -39,7 +39,7 @@ static void add_button(widget_t* slide_menu, const char* text) {
   widget_on(b, EVT_CLICK, on_button_click, b);
 }
 
-void application_init() {
+ret_t application_init() {
   widget_t* slide_menu = NULL;
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
 
@@ -50,6 +50,13 @@ void application_init() {
   add_button(slide_menu, "4");
 
   widget_on(slide_menu, EVT_VALUE_CHANGED, on_current_changed, slide_menu);
+  
+  return RET_OK;
 }
 
-#include "demo_main.c"
+ret_t application_exit() {
+  log_debug("application_exit\n");
+  return RET_OK;
+}
+
+#include "awtk_main.inc"

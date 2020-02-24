@@ -22,7 +22,7 @@
 #include "awtk.h"
 #include "base/image_base.h"
 
-void application_init() {
+ret_t application_init() {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
   widget_t* view = view_create(win, 0, 0, win->w / 2, win->h / 2);
   widget_t* clip_view = clip_view_create(view, 0, 0, 0, 0);
@@ -47,6 +47,14 @@ void application_init() {
   image_set_image(image1, "bg_landscape_1");
 
   widget_layout(win);
+  
+  return RET_OK;
 }
 
-#include "demo_main.c"
+ret_t application_exit() {
+  log_debug("application_exit\n");
+  return RET_OK;
+}
+
+#include "awtk_main.inc"
+

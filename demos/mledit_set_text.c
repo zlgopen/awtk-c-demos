@@ -73,7 +73,7 @@ static ret_t on_open_window(void* ctx, event_t* e) {
   return RET_OK;
 }
 
-void application_init() {
+ret_t application_init() {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
 
   widget_t* mledit = mledit_create(win, 0, 0, win->w, win->h / 2);
@@ -89,6 +89,13 @@ void application_init() {
   widget_on(mledit, EVT_VALUE_CHANGING, on_change, NULL);
 
   widget_layout(win);
+  
+  return RET_OK;
 }
 
-#include "demo_main.c"
+ret_t application_exit() {
+  log_debug("application_exit\n");
+  return RET_OK;
+}
+
+#include "awtk_main.inc"

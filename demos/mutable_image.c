@@ -101,16 +101,13 @@ static ret_t copy_decoded_image(void* ctx, bitmap_t* image) {
 
 static decoding_info_t* s_decoding_info = NULL;
 
-void application_exit() {
-  decoding_info_destroy(s_decoding_info);
-}
 
 static ret_t click_to_quit(void* ctx, event_t* e) {
   tk_quit();
   return RET_OK;
 }
 
-void application_init() {
+ret_t application_init() {
   widget_t* ok = NULL;
   widget_t* image = NULL;
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
@@ -136,7 +133,13 @@ void application_init() {
   window_manager_set_show_fps(win->parent, TRUE);
 
   s_decoding_info = decoding;
-  atexit(application_exit);
+  
+  return RET_OK;
 }
 
-#include "demo_main.c"
+ret_t application_exit() {
+  decoding_info_destroy(s_decoding_info);
+  return RET_OK;
+}
+
+#include "awtk_main.inc"

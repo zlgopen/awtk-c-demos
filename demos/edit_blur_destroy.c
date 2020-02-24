@@ -43,13 +43,20 @@ widget_t* create_edit(widget_t* win, int type, const char* name, const wchar_t* 
   return edit;
 }
 
-void application_init() {
+ret_t application_init() {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
 
   widget_t* edit = create_edit(win, INPUT_TEXT, "text[3-32]", L"abc", 10, 10, 228, 30);
   edit = create_edit(win, INPUT_TEXT, "text[3-32]", L"abc", 10, 60, 228, 30);
 
   widget_layout(win);
+  
+  return RET_OK;
 }
 
-#include "demo_main.c"
+ret_t application_exit() {
+  log_debug("application_exit\n");
+  return RET_OK;
+}
+
+#include "awtk_main.inc"

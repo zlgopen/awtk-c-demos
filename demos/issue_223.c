@@ -10,7 +10,7 @@ static ret_t on_cont_paint(void* ctx, event_t* e) {
   return RET_OK;
 }
 
-void application_init() {
+ret_t application_init() {
   widget_t* par_main = window_create(NULL, 0, 0, 0, 0);
   widget_set_style_str(par_main, "bg_color", "black");
 
@@ -26,6 +26,13 @@ void application_init() {
   widget_on(cont_obj, EVT_PAINT, on_cont_paint, NULL);
   widget_on(view, EVT_PAINT, on_view_paint, NULL);
   // widget_on(edit, EVT_VALUE_CHANGING, on_edit_changing, edit);
+  
+  return RET_OK;
 }
 
-#include "demo_main.c"
+ret_t application_exit() {
+  log_debug("application_exit\n");
+  return RET_OK;
+}
+
+#include "awtk_main.inc"

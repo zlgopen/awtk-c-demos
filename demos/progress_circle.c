@@ -21,13 +21,20 @@
 
 #include "awtk.h"
 
-void application_init() {
+ret_t application_init() {
   widget_t* progress_circle = NULL;
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
 
   progress_circle = progress_circle_create(win, 10, 10, 200, 200);
   progress_circle_set_max(progress_circle, 360);
   widget_set_value(progress_circle, 128);
+  
+  return RET_OK;
 }
 
-#include "demo_main.c"
+ret_t application_exit() {
+  log_debug("application_exit\n");
+  return RET_OK;
+}
+
+#include "awtk_main.inc"

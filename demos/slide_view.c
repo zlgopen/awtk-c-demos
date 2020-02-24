@@ -21,7 +21,7 @@
 
 #include "awtk.h"
 
-void application_init() {
+ret_t application_init() {
   widget_t* view = NULL;
   widget_t* image = NULL;
   widget_t* slide_view = NULL;
@@ -43,6 +43,13 @@ void application_init() {
   image = image_create(view, 0, 0, slide_view->w, slide_view->h);
   image_set_draw_type(image, IMAGE_DRAW_CENTER);
   image_set_image(image, "3");
+  
+  return RET_OK;
 }
 
-#include "demo_main.c"
+ret_t application_exit() {
+  log_debug("application_exit\n");
+  return RET_OK;
+}
+
+#include "awtk_main.inc"

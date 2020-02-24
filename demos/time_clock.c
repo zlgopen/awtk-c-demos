@@ -21,7 +21,7 @@
 
 #include "awtk.h"
 
-void application_init() {
+ret_t application_init() {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
 
   widget_t* tc = time_clock_create(win, 10, 10, 240, 240);
@@ -30,6 +30,13 @@ void application_init() {
   time_clock_set_hour_image(tc, "clock_hour");
   time_clock_set_minute_image(tc, "clock_minute");
   time_clock_set_second_image(tc, "clock_second");
+  
+  return RET_OK;
 }
 
-#include "demo_main.c"
+ret_t application_exit() {
+  log_debug("application_exit\n");
+  return RET_OK;
+}
+
+#include "awtk_main.inc"

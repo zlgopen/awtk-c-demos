@@ -46,11 +46,19 @@ static ret_t on_paint_event(void* ctx, event_t* evt) {
   return RET_OK;
 }
 
-void application_init() {
+ret_t application_init() {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
   widget_t* canvas = canvas_widget_create(win, 10, 10, win->w - 20, win->h - 20);
 
   widget_on(canvas, EVT_PAINT, on_paint_event, canvas);
+  
+  return RET_OK;
 }
 
-#include "demo_main.c"
+ret_t application_exit() {
+  log_debug("application_exit\n");
+  return RET_OK;
+}
+
+#include "awtk_main.inc"
+

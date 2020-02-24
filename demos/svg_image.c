@@ -21,12 +21,19 @@
 
 #include "awtk.h"
 
-void application_init() {
+ret_t application_init() {
   widget_t* image = NULL;
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
 
   image = svg_image_create(win, 10, 10, 200, 200);
   image_set_image(image, "girl");
+  
+  return RET_OK;
 }
 
-#include "demo_main.c"
+ret_t application_exit() {
+  log_debug("application_exit\n");
+  return RET_OK;
+}
+
+#include "awtk_main.inc"

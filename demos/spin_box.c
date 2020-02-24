@@ -55,7 +55,7 @@ widget_t* create_spin_box(widget_t* win, input_type_t type, const char* name, co
   return spin_box;
 }
 
-void application_init() {
+ret_t application_init() {
   widget_t* spin_box1 = NULL;
   widget_t* spin_box2 = NULL;
   widget_t* spin_box3 = NULL;
@@ -78,6 +78,13 @@ void application_init() {
   edit_set_float_limit(spin_box4, 1, 10, 0.1);
 
   widget_layout(win);
+  
+  return RET_OK;
 }
 
-#include "demo_main.c"
+ret_t application_exit() {
+  log_debug("application_exit\n");
+  return RET_OK;
+}
+
+#include "awtk_main.inc"

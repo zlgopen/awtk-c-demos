@@ -21,7 +21,7 @@
 
 #include "awtk.h"
 
-void application_init() {
+ret_t application_init() {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
   widget_t* rich_text = rich_text_create(win, 0, 0, 0, 0);
 
@@ -35,6 +35,13 @@ void application_init() {
 
   widget_set_self_layout_params(rich_text, "center", "middle", "100%", "100%");
   widget_layout(win);
+  
+  return RET_OK;
 }
 
-#include "demo_main.c"
+ret_t application_exit() {
+  log_debug("application_exit\n");
+  return RET_OK;
+}
+
+#include "awtk_main.inc"

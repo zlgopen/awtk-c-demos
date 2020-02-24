@@ -48,7 +48,7 @@ widget_t* create_check_button(widget_t* win, bool_t radio, const char* text, int
   return btn;
 }
 
-void application_init() {
+ret_t application_init() {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
 
   create_check_button(win, FALSE, "Zzzzzz", 10, 10, 128, 30);
@@ -63,4 +63,10 @@ void application_init() {
   widget_layout(win);
 }
 
-#include "demo_main.c"
+ret_t application_exit() {
+  log_debug("application_exit\n");
+  return RET_OK;
+}
+
+#include "awtk_main.inc"
+

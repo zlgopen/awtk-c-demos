@@ -59,7 +59,7 @@ static ret_t on_show_dialog(void* ctx, event_t* evt) {
   return RET_OK;
 }
 
-void application_init() {
+ret_t application_init() {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
   widget_t* show_dialog = button_create(win, 0, 0, 0, 0);
   widget_t* show_dialog_long_press = button_create(win, 0, 0, 0, 0);
@@ -74,6 +74,13 @@ void application_init() {
   widget_on(show_dialog_long_press, EVT_LONG_PRESS, on_show_dialog, NULL);
 
   widget_layout(win);
+  
+  return RET_OK;
 }
 
-#include "demo_main.c"
+ret_t application_exit() {
+  log_debug("application_exit\n");
+  return RET_OK;
+}
+
+#include "awtk_main.inc"

@@ -45,7 +45,7 @@ static ret_t on_key_back_or_back_to_home(void* ctx, event_t* e) {
   return RET_OK;
 }
 
-void application_init() {
+ret_t application_init() {
   widget_t* wm = window_manager();
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
   widget_t* open_window = button_create(win, 0, 0, 0, 0);
@@ -59,6 +59,14 @@ void application_init() {
   widget_layout(win);
 
   widget_on(wm, EVT_KEY_DOWN, on_key_back_or_back_to_home, wm);
+  
+  return RET_OK;
 }
 
-#include "demo_main.c"
+ret_t application_exit() {
+  log_debug("application_exit\n");
+  return RET_OK;
+}
+
+#include "awtk_main.inc"
+

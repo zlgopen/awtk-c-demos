@@ -43,7 +43,7 @@ static ret_t on_timer_open(const timer_info_t* info) {
   return RET_REMOVE;
 }
 
-void application_init() {
+ret_t application_init(void) {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
   widget_t* edit = edit_create(win, 0, 0, win->w, 30);
 
@@ -53,4 +53,10 @@ void application_init() {
   widget_layout(win);
 }
 
-#include "demo_main.c"
+ret_t application_exit() {
+  log_debug("application_exit\n");
+  return RET_OK;
+}
+
+#include "awtk_main.inc"
+
