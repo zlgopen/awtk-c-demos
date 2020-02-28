@@ -50,7 +50,7 @@ ret_t application_init() {
   add_button(slide_menu, "4");
 
   widget_on(slide_menu, EVT_VALUE_CHANGED, on_current_changed, slide_menu);
-  
+
   return RET_OK;
 }
 

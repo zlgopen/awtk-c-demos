@@ -43,7 +43,7 @@ ret_t application_init() {
   image = image_create(view, 0, 0, slide_view->w, slide_view->h);
   image_set_draw_type(image, IMAGE_DRAW_CENTER);
   image_set_image(image, "3");
-  
+
   return RET_OK;
 }
 

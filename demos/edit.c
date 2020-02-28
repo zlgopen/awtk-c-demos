@@ -93,7 +93,7 @@ ret_t application_init() {
   widget_on(button, EVT_CLICK, on_click, edit1);
 
   widget_layout(win);
-  
+
   return RET_OK;
 }
 

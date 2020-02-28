@@ -35,7 +35,7 @@ ret_t application_init() {
 
   widget_set_self_layout_params(rich_text, "center", "middle", "100%", "100%");
   widget_layout(win);
-  
+
   return RET_OK;
 }
 

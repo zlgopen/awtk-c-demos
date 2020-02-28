@@ -33,11 +33,11 @@ ret_t application_init() {
   uint32_t n = 100;
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
   widget_t* list_view = list_view_create(win, 0, 0, win->w, win->h);
-  widget_t* scroll_view = scroll_view_create(list_view, 0, 0, win->w-10, win->h);
-  widget_t* scroll_bar = scroll_bar_create_mobile(list_view, win->w-10, 0, 10, win->h);
-  
+  widget_t* scroll_view = scroll_view_create(list_view, 0, 0, win->w - 10, win->h);
+  widget_t* scroll_bar = scroll_bar_create_mobile(list_view, win->w - 10, 0, 10, win->h);
+
   list_view_set_item_height(list_view, 30);
-  for(i = 0; i < n; i++) {
+  for (i = 0; i < n; i++) {
     char text[32] = {0};
     widget_t* item = list_item_create(scroll_view, 0, 0, 0, 0);
 

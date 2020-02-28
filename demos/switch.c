@@ -31,7 +31,7 @@ ret_t application_init() {
 
   widget_t* sw = switch_create(win, 10, 10, 80, 30);
   widget_on(sw, EVT_VALUE_CHANGED, on_changed, NULL);
-  
+
   return RET_OK;
 }
 

@@ -89,7 +89,7 @@ ret_t application_init() {
   widget_on(mledit, EVT_VALUE_CHANGING, on_change, NULL);
 
   widget_layout(win);
-  
+
   return RET_OK;
 }
 

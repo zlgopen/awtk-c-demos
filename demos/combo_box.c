@@ -38,7 +38,7 @@ ret_t application_init() {
   widget_set_self_layout_params(combo_box2, "center", "middle:30", "50%", "30");
 
   widget_layout(win);
-  
+
   return RET_OK;
 }
 

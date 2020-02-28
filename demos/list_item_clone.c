@@ -29,10 +29,10 @@ static ret_t on_click(void* ctx, event_t* e) {
   uint64_t start = time_now_ms();
   uint64_t cost = time_now_ms();
 
-  for(i = 0; i < n; i++) {
+  for (i = 0; i < n; i++) {
     widget_clone(item, view);
   }
- 
+
   cost = time_now_ms() - start;
   log_debug("clone %u cost %llu\n", n, cost);
 

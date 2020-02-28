@@ -59,7 +59,7 @@ ret_t application_init() {
   widget_layout(win);
 
   widget_on(wm, EVT_KEY_DOWN, on_key_back_or_back_to_home, wm);
-  
+
   return RET_OK;
 }
 
@@ -69,4 +69,3 @@ ret_t application_exit() {
 }
 
 #include "awtk_main.inc"
-

@@ -40,10 +40,10 @@ ret_t application_init() {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
   widget_t* button = button_create(win, 0, 0, 0, 0);
   widget_t* image = image_create(win, 0, 0, 0, 0);
- 
-  image_set_image(image, "file://"APP_ROOT"/demos/zh.png");
+
+  image_set_image(image, "file://" APP_ROOT "/demos/zh.png");
   widget_set_self_layout_params(image, "center", "middle:-100", "100", "100");
-  
+
   image = image_create(win, 0, 0, 0, 0);
   image_set_image(image, "earth");
   widget_set_self_layout_params(image, "center", "middle:-50", "100", "100");
@@ -51,14 +51,14 @@ ret_t application_init() {
   widget_set_text(button, L"clear image");
   widget_set_self_layout_params(button, "center", "middle", "50%", "30");
   widget_on(button, EVT_CLICK, on_clear_image, NULL);
-  
+
   button = button_create(win, 0, 0, 0, 0);
   widget_set_text(button, L"quit");
   widget_set_self_layout_params(button, "center", "middle:60", "50%", "30");
   widget_on(button, EVT_CLICK, on_quit, NULL);
 
   widget_layout(win);
-  
+
   return RET_OK;
 }
 

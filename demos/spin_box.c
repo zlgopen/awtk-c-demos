@@ -78,7 +78,7 @@ ret_t application_init() {
   edit_set_float_limit(spin_box4, 1, 10, 0.1);
 
   widget_layout(win);
-  
+
   return RET_OK;
 }
 

@@ -35,7 +35,7 @@ ret_t application_init() {
   widget_use_style(ts, "dark");
 
   widget_on(ts, EVT_VALUE_CHANGED, on_changed, NULL);
-  
+
   return RET_OK;
 }
 

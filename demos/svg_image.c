@@ -27,7 +27,7 @@ ret_t application_init() {
 
   image = svg_image_create(win, 10, 10, 200, 200);
   image_set_image(image, "girl");
-  
+
   return RET_OK;
 }
 

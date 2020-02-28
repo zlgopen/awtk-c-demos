@@ -50,7 +50,7 @@ ret_t application_init() {
   edit = create_edit(win, INPUT_TEXT, "text[3-32]", L"abc", 10, 60, 228, 30);
 
   widget_layout(win);
-  
+
   return RET_OK;
 }
 

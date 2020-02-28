@@ -51,7 +51,7 @@ ret_t application_init() {
   widget_t* canvas = canvas_widget_create(win, 10, 10, win->w - 20, win->h - 20);
 
   widget_on(canvas, EVT_PAINT, on_paint_event, canvas);
-  
+
   return RET_OK;
 }
 
@@ -61,4 +61,3 @@ ret_t application_exit() {
 }
 
 #include "awtk_main.inc"
-

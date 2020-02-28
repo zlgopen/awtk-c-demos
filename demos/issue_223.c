@@ -26,7 +26,7 @@ ret_t application_init() {
   widget_on(cont_obj, EVT_PAINT, on_cont_paint, NULL);
   widget_on(view, EVT_PAINT, on_view_paint, NULL);
   // widget_on(edit, EVT_VALUE_CHANGING, on_edit_changing, edit);
-  
+
   return RET_OK;
 }
 

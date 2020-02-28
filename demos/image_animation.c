@@ -30,7 +30,7 @@ ret_t application_init() {
   image_animation_set_interval(image_animation, 50);
   image_animation_set_range_sequence(image_animation, 1, 9);
   image_animation_play(image_animation);
-  
+
   return RET_OK;
 }
 

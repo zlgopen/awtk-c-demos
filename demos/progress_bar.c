@@ -71,7 +71,7 @@ ret_t application_init() {
   timer_add(on_timer, win, 500);
 
   widget_layout(win);
-  
+
   return RET_OK;
 }
 

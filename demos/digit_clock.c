@@ -26,7 +26,7 @@ ret_t application_init() {
 
   widget_t* tc = digit_clock_create(win, 10, 10, 240, 30);
   digit_clock_set_format(tc, "YY/MM/DD h:mm:ss");
-  
+
   return RET_OK;
 }
 

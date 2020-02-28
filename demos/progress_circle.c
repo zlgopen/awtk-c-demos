@@ -28,7 +28,7 @@ ret_t application_init() {
   progress_circle = progress_circle_create(win, 10, 10, 200, 200);
   progress_circle_set_max(progress_circle, 360);
   widget_set_value(progress_circle, 128);
-  
+
   return RET_OK;
 }
 

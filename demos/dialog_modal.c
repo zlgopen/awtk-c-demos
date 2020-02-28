@@ -74,7 +74,7 @@ ret_t application_init() {
   widget_on(show_dialog_long_press, EVT_LONG_PRESS, on_show_dialog, NULL);
 
   widget_layout(win);
-  
+
   return RET_OK;
 }
 

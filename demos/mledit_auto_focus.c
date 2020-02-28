@@ -97,7 +97,7 @@ ret_t application_init() {
   widget_on(win, EVT_WINDOW_TO_FOREGROUND, on_window_to_foreground, win);
 
   widget_layout(win);
-  
+
   return RET_OK;
 }
 

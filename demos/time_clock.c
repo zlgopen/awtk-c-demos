@@ -30,7 +30,7 @@ ret_t application_init() {
   time_clock_set_hour_image(tc, "clock_hour");
   time_clock_set_minute_image(tc, "clock_minute");
   time_clock_set_second_image(tc, "clock_second");
-  
+
   return RET_OK;
 }
 

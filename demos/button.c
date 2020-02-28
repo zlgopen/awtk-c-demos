@@ -41,7 +41,7 @@ ret_t application_init() {
   widget_on(ok, EVT_LONG_PRESS, on_long_press, NULL);
 
   widget_layout(win);
-  
+
   return RET_OK;
 }
 
@@ -51,4 +51,3 @@ ret_t application_exit() {
 }
 
 #include "awtk_main.inc"
-

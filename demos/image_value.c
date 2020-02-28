@@ -41,7 +41,7 @@ ret_t application_init() {
   image_value_set_value(image_value, 100);
 
   timer_add(on_timer_update, win, 1000);
-  
+
   return RET_OK;
 }
 

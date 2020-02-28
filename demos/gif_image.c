@@ -27,7 +27,7 @@ ret_t application_init() {
 
   image = gif_image_create(win, 10, 10, 200, 200);
   image_set_image(image, "bee");
-  
+
   return RET_OK;
 }
 

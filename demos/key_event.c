@@ -30,8 +30,8 @@ static ret_t on_click(void* ctx, event_t* e) {
 static ret_t press_q_to_quit(void* ctx, event_t* e) {
   key_event_t* evt = key_event_cast(e);
 
-  if(evt->key == TK_KEY_q || evt->key == TK_KEY_Q) {
-    if(dialog_confirm("Confirm", "Are you to quit?") == RET_OK) {
+  if (evt->key == TK_KEY_q || evt->key == TK_KEY_Q) {
+    if (dialog_confirm("Confirm", "Are you to quit?") == RET_OK) {
       tk_quit();
     }
   }
@@ -62,4 +62,3 @@ ret_t application_exit() {
 }
 
 #include "awtk_main.inc"
-

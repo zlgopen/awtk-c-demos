@@ -33,7 +33,7 @@ ret_t application_init() {
   widget_t* clip_view1 = clip_view_create(view1, 0, 0, 0, 0);
   widget_t* button1 = button_create(clip_view1, 0, 0, 0, 0);
   widget_t* image1 = image_create(clip_view1, -700, -450, 800, 600);
-  
+
   widget_set_self_layout_params(clip_view, "0", "0", "100%", "100%");
   widget_set_self_layout_params(clip_view1, "0", "0", "100%", "100%");
 
@@ -42,12 +42,12 @@ ret_t application_init() {
 
   widget_set_text_utf8(button, "abcdefghimn");
   widget_set_text_utf8(button1, "abcdefghimn");
-  
+
   image_set_image(image, "bg_landscape_1");
   image_set_image(image1, "bg_landscape_1");
 
   widget_layout(win);
-  
+
   return RET_OK;
 }
 
@@ -57,4 +57,3 @@ ret_t application_exit() {
 }
 
 #include "awtk_main.inc"
-

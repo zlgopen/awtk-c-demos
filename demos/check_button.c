@@ -69,4 +69,3 @@ ret_t application_exit() {
 }
 
 #include "awtk_main.inc"
-
