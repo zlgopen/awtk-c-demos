@@ -34,12 +34,12 @@ ret_t application_init() {
 
   widget_t* edit = edit_create(win, 0, 0, 0, 0);
   widget_t* mledit = mledit_create(win, 0, 0, 0, 0);
-  widget_t* close= button_create(win, 0, 0, 0, 0);
+  widget_t* close = button_create(win, 0, 0, 0, 0);
 
   widget_set_text(close, L"close");
   widget_set_self_layout_params(close, "center", "bottom:10", "50%", "30");
   widget_on(close, EVT_CLICK, on_click_close, NULL);
- 
+
   edit_set_input_tips(edit, "title");
   mledit_set_input_tips(mledit, "content");
   widget_set_self_layout_params(edit, "10", "10", "80%", "30");

@@ -1,0 +1,14 @@
+{
+  "name":"udp",
+  "version":"1.0",
+  "assets" : "assets",
+  "includes" : [".", "src"],
+  "android" : {
+    "app_name":"org.zlgopen.udp",
+    "sources":["demos/udp*.c", "demos/udp*.h"]
+  },
+  "ios" : {
+    "app_name":"org.zlgopen.udp",
+    "sources":["demos/udp*.c", "demos/udp*.h"]
+  }
+}

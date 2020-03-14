@@ -46,5 +46,6 @@ env.Program(os.path.join(BIN_DIR, 'demo_key_event'), ['key_event.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_unload_image'), ['unload_image.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_list_view_dynamic'), ['list_view_dynamic.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_edit_mledit'), ['edit_mledit.c'])
+env.Program(os.path.join(BIN_DIR, 'demo_udp'), ['udp.c', 'udp_settings.c'])
 
 
