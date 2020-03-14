@@ -191,3 +191,26 @@ ret_t application_exit() {
 }
 
 #include "awtk_main.inc"
+
+/*
+ * 使用说明：
+ * 
+ * 本程序需要配合 AWTK 中的 udp_recv 使用。
+ * 
+ * 1.先启动 udp_recv:
+ * 
+ * cd awtk
+ * ./bin/udp_recv 8000
+ * 
+ * 2.运行demo_udp，并将设置中的IP和端口指向udp_recv的IP和端口。
+ * 
+ * cd awtk-c-demos
+ * ./bin/demo_udp
+ * 
+ * 3.点击demo_udp中的『Send』按钮，它会把编辑器中的数据发送给udp_recv。
+ * 
+ * 4.udp_recv收到数据再把数据原样返回给demo_udp。
+ * 
+ * 5.demo_udp再将数据显示到界面上。 
+ * 
+ */
