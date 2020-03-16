@@ -51,6 +51,8 @@ ret_t application_init(void) {
   timer_add(on_timer_open, NULL, 6000);
 
   widget_layout(win);
+
+  return RET_OK;
 }
 
 ret_t application_exit() {

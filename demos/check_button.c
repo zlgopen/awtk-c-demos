@@ -61,6 +61,8 @@ ret_t application_init() {
   create_check_button(win, TRUE, "Kkkkkk", 10, 130 + 128, 128, 30);
 
   widget_layout(win);
+  
+  return RET_OK;
 }
 
 ret_t application_exit() {
