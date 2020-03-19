@@ -6,11 +6,11 @@
   "android" : {
     "plugins":["share"],
     "app_name":"org.zlgopen.sharedemo",
-    "sources":["demos/share.c",  "demos/assets*.c"]
+    "sources":["demos/share.c",  "demos/assets*.c", "demos/assets*.inc"]
   },
   "ios" : {
     "plugins":["share"],
     "app_name":"org.zlgopen.sharedemo",
-    "sources":["demos/share.c","demos/assets*.c"]
+    "sources":["demos/share.c","demos/assets*.c", "demos/assets*.inc"]
   }
 }
