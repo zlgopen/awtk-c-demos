@@ -32,7 +32,11 @@ static ret_t on_changed(void* ctx, event_t* evt) {
 static ret_t on_changing(void* ctx, event_t* evt) {
   widget_t* target = WIDGET(evt->target);
 
-  log_debug("%s changing\n", target->name);
+  str_t str;
+  str_init(&str, 0);
+  str_from_wstr(&str, widget_get_text(target));
+  log_debug("%s: %s\n", target->name, str.str);
+  str_reset(&str);
 
   return RET_OK;
 }
