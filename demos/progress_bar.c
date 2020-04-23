@@ -68,7 +68,7 @@ ret_t application_init() {
   create_progress_bar(win, FALSE, "bar1");
   create_progress_bar(win, TRUE, "bar2");
 
-  timer_add(on_timer, win, 500);
+  widget_add_timer(win, on_timer, 500);
 
   widget_layout(win);
 
