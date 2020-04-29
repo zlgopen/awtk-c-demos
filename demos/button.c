@@ -35,11 +35,12 @@ ret_t application_init() {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
   widget_t* ok = button_create(win, 0, 0, 0, 0);
 
-  widget_set_text(ok, L"ok");
+  locale_info_change(locale_info(), "zh", "CN");
+
+  widget_set_tr_text(ok, "ok");
   widget_set_self_layout_params(ok, "center", "middle", "50%", "30");
   widget_on(ok, EVT_CLICK, on_click, NULL);
   widget_on(ok, EVT_LONG_PRESS, on_long_press, NULL);
-  widget_set_tr_text(ok, "ok");
 
   widget_layout(win);
 
