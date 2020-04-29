@@ -39,6 +39,7 @@ ret_t application_init() {
   widget_set_self_layout_params(ok, "center", "middle", "50%", "30");
   widget_on(ok, EVT_CLICK, on_click, NULL);
   widget_on(ok, EVT_LONG_PRESS, on_long_press, NULL);
+  widget_set_tr_text(ok, "ok");
 
   widget_layout(win);
 
