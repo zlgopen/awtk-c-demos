@@ -48,5 +48,6 @@ env.Program(os.path.join(BIN_DIR, 'demo_unload_image'), ['unload_image.c', 'asse
 env.Program(os.path.join(BIN_DIR, 'demo_list_view_dynamic'), ['list_view_dynamic.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_edit_mledit'), ['edit_mledit.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_udp'), ['udp.c', 'udp_settings.c', 'assets.c'])
+env.Program(os.path.join(BIN_DIR, 'demo_hscroll_label'), ['hscroll_label.c', 'assets.c'])
 
 
