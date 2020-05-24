@@ -49,5 +49,6 @@ env.Program(os.path.join(BIN_DIR, 'demo_list_view_dynamic'), ['list_view_dynamic
 env.Program(os.path.join(BIN_DIR, 'demo_edit_mledit'), ['edit_mledit.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_udp'), ['udp.c', 'udp_settings.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_hscroll_label'), ['hscroll_label.c', 'assets.c'])
+env.Program(os.path.join(BIN_DIR, 'demo_wait_cursor'), ['wait_cursor.c', 'assets.c'])
 
 
