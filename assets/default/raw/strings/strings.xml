@@ -2,6 +2,15 @@
 <language name="en_US">OK</language>
 <language name="zh_CN">确定</language>
 </string>
+<string name="next">
+<language name="en_US">Next</language>
+<language name="zh_CN">下一个</language>
+</string>
+
+<string name="done">
+<language name="en_US">Done</language>
+<language name="zh_CN">完成</language>
+</string>
 
 <string name="cancel">
 <language name="en_US">Cancel</language>
@@ -52,4 +61,9 @@ multi-line
 Translate text 
 (center)
   </language>
+</string>
+
+<string name="&lt;&quot;en&amp;zh&quot;&gt;">
+<language name="en_US">&lt;&quot;en&amp;zh&quot;&gt;</language>
+<language name="zh_CN">&lt;&quot;英文&amp;中文&quot;&gt;</language>
 </string>
