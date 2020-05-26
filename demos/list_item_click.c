@@ -23,8 +23,7 @@
 
 static ret_t on_click(void* ctx, event_t* e) {
   widget_t* item = WIDGET(ctx);
-  log_debug("%s clicked\n", item->name);
-
+  dialog_info("info", item->name);
   return RET_OK;
 }
 
