@@ -51,5 +51,7 @@ env.Program(os.path.join(BIN_DIR, 'demo_udp'), ['udp.c', 'udp_settings.c', 'asse
 env.Program(os.path.join(BIN_DIR, 'demo_hscroll_label'), ['hscroll_label.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_wait_cursor'), ['wait_cursor.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_open_close'), ['open_close.c', 'assets.c'])
+env.Program(os.path.join(BIN_DIR, 'demo_normal_dialog'), ['normal_dialog.c', 'assets.c'])
+env.Program(os.path.join(BIN_DIR, 'demo_modal_dialog'), ['modal_dialog.c', 'assets.c'])
 
 
