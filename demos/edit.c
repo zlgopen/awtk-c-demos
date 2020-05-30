@@ -29,6 +29,14 @@ static ret_t on_changed(void* ctx, event_t* evt) {
   return RET_OK;
 }
 
+static ret_t on_action_event(void* ctx, event_t* evt) {
+  widget_t* target = WIDGET(evt->target);
+
+  log_debug("%s action event\n", target->name);
+
+  return RET_OK;
+}
+
 static ret_t on_changing(void* ctx, event_t* evt) {
   widget_t* target = WIDGET(evt->target);
 
@@ -47,10 +55,6 @@ widget_t* create_edit(widget_t* win, int type, const char* name, const wchar_t* 
 
   widget_on(edit, EVT_VALUE_CHANGED, on_changed, NULL);
   widget_on(edit, EVT_VALUE_CHANGING, on_changing, NULL);
-
-  widget_set_name(edit, name);
-  widget_set_text(edit, text);
-
   edit_set_input_tips(edit, name);
   edit_set_input_type(edit, type);
 
@@ -75,17 +79,24 @@ ret_t application_init() {
   widget_t* button = button_create(win, 0, 0, 0, 0);
 
   edit1 = create_edit(win, INPUT_TEXT, "text[3-32]", L"abc", 10, 10, 228, 30);
+  widget_set_name(edit1, "edit1");
   edit_set_text_limit(edit1, 3, 32);
+  edit_set_action_text(edit1, "next");
+  widget_on(edit1, EVT_IM_ACTION, on_action_event, NULL);
+
   edit_set_focus(edit1, TRUE);
 
   edit2 = create_edit(win, INPUT_INT, "int auto fix[1-100]", L"", 10, 50, 228, 30);
+  widget_set_name(edit2, "edit2");
   edit_set_int_limit(edit2, 1, 100, 1);
   edit_set_auto_fix(edit2, TRUE);
 
   edit3 = create_edit(win, INPUT_FLOAT, "float[1-10]", L"1.23", 10, 90, 228, 30);
+  widget_set_name(edit3, "edit3");
   edit_set_float_limit(edit3, 1, 10, 1);
 
   create_edit(win, INPUT_PASSWORD, "password", L"", 10, 10 + 128, 228, 30);
+  widget_set_name(edit4, "edit4");
   edit4 = create_edit(win, INPUT_TEXT, "text", L"readonly", 10, 50 + 128, 228, 30);
   edit_set_readonly(edit4, TRUE);
 
