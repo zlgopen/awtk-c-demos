@@ -52,5 +52,6 @@ env.Program(os.path.join(BIN_DIR, 'demo_wait_cursor'), ['wait_cursor.c', 'assets
 env.Program(os.path.join(BIN_DIR, 'demo_open_close'), ['open_close.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_normal_dialog'), ['normal_dialog.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_modal_dialog'), ['modal_dialog.c', 'assets.c'])
+env.Program(os.path.join(BIN_DIR, 'demo_vgcanvas_draw_text'), ['vgcanvas_draw_text.c', 'assets.c'])
 
 
