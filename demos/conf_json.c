@@ -88,6 +88,22 @@ ret_t application_init() {
 
   name = app_conf_get_str("wifi.name", NULL);
   assert(tk_str_eq(name, "awtk"));
+  
+  app_conf_set_str("network.eth0.ip", "192.169.0.100");
+  app_conf_set_str("network.eth0.gateway", "192.169.0.1");
+  app_conf_set_str("network.eth0.mask", "255.255.255.0");
+  
+  app_conf_set_str("network.eth1.ip", "192.169.0.200");
+  app_conf_set_str("network.eth1.gateway", "192.169.0.1");
+  app_conf_set_str("network.eth1.mask", "255.255.255.0");
+  
+  app_conf_set_str("network.eth2.ip", "192.169.0.150");
+  app_conf_set_str("network.eth2.gateway", "192.169.0.1");
+  app_conf_set_str("network.eth2.mask", "255.255.255.0");
+  
+  const char* ip0 = app_conf_get_str("network.[0].ip", NULL);
+  const char* ip1 = app_conf_get_str("network.[1].ip", NULL);
+  const char* ip2 = app_conf_get_str("network.[2].ip", NULL);
 
   app_conf_save();
 
