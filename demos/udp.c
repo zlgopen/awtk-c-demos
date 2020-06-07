@@ -23,6 +23,10 @@
 #include "udp_settings.h"
 #include "streams/inet/iostream_udp.h"
 
+#ifdef WIN32
+#pragma comment(lib, "ws2_32")
+#endif/*WIN32*/
+
 typedef struct _app_t {
   bool_t quited;
   tk_iostream_t* udp;
