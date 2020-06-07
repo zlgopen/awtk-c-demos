@@ -1,9 +1,9 @@
 ﻿/**
- * File:   button.c
+ * File:   conf_json.c
  * Author: AWTK Develop Team
- * Brief:  button demo
+ * Brief:  app conf demo
  *
- * Copyright (c) 2018 - 2020  Guangzhou ZHIYUAN Electronics Co.,Ltd.
+ * Copyright (c) 2020 - 2020  Guangzhou ZHIYUAN Electronics Co.,Ltd.
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -15,7 +15,7 @@
 /**
  * History:
  * ================================================================
- * 2018-08-16 Li XianJing <xianjimli@hotmail.com> created
+ * 2020-06-07 Li XianJing <xianjimli@hotmail.com> created
  *
  */
 
