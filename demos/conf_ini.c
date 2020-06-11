@@ -89,6 +89,12 @@ ret_t application_init() {
   name = app_conf_get_str("wifi.name", NULL);
   assert(tk_str_eq(name, "awtk"));
 
+  assert(app_conf_get_int("#size", 0) == 2);
+  assert(app_conf_get_int("wifi.#size", 0) == 2);
+  
+  assert(strcmp(app_conf_get_str("[0].#name", NULL), "wifi") == 0);
+  assert(strcmp(app_conf_get_str("wifi.[0].#name", NULL), "on") == 0);
+
   app_conf_save();
 
   return window_main_open();
