@@ -55,6 +55,7 @@ ret_t application_init() {
   int32_t port = 0;
   double timeout = 0;
   const char* name = NULL;
+  wchar_t wifi_name[128];
 
   app_conf_init_ini("conf");
   app_conf_on_changed(app_conf_changed, NULL);
@@ -94,6 +95,9 @@ ret_t application_init() {
   
   assert(strcmp(app_conf_get_str("[0].#name", NULL), "wifi") == 0);
   assert(strcmp(app_conf_get_str("wifi.[0].#name", NULL), "on") == 0);
+
+  app_conf_set_wstr("wifi.name", L"awtk");
+  app_conf_get_wstr("wifi.name", wifi_name, ARRAY_SIZE(wifi_name));
 
   app_conf_save();
 
