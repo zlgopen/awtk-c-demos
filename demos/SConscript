@@ -56,5 +56,6 @@ env.Program(os.path.join(BIN_DIR, 'demo_conf_ini'), ['conf_ini.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_conf_json'), ['conf_json.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_conf_ubjson'), ['conf_ubjson.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_vgcanvas_draw_text'), ['vgcanvas_draw_text.c', 'assets.c'])
+env.Program(os.path.join(BIN_DIR, 'demo_popup_menu'), ['popup_menu.c', 'assets.c'])
 
 
