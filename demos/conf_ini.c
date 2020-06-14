@@ -99,6 +99,9 @@ ret_t application_init() {
   app_conf_set_wstr("wifi.name", L"awtk");
   app_conf_get_wstr("wifi.name", wifi_name, ARRAY_SIZE(wifi_name));
 
+  assert(app_conf_get_int("wifi.#index", -1) == 0);
+  assert(app_conf_get_int("server.#index", -1) == 1);
+
   app_conf_save();
 
   return window_main_open();
