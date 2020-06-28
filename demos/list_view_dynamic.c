@@ -55,14 +55,10 @@ static ret_t application_init_detail_list(widget_t* win, item_info_t* info) {
   widget_t* item = NULL;
   widget_t* detail = widget_lookup(win, "detail", TRUE);
 
+  widget_destroy_children(detail);
   for (i = 0; info->details[i] != NULL; i++) {
     text = info->details[i];
-
-    if (i < widget_count_children(detail)) {
-      widget_set_text_utf8(widget_get_child(detail, i), text);
-    } else {
-      item = application_create_list_item(detail, i, text);
-    }
+    item = application_create_list_item(detail, i, text);
   }
 
   return RET_OK;
