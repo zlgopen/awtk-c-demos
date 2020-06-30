@@ -75,6 +75,10 @@ static ret_t on_pointer_up(void* ctx, event_t* evt) {
 
 static ret_t on_paint_event(void* ctx, event_t* evt) {
   uint32_t i = 0;
+  float_t ascent = 0;
+  float_t descent = 0;
+  float_t line_height = 0;
+
   widget_t* canvas_widget = WIDGET(ctx);
   canvas_t* c = paint_event_cast(evt)->c;
   vgcanvas_t* vg = canvas_get_vgcanvas(c);
@@ -107,6 +111,9 @@ static ret_t on_paint_event(void* ctx, event_t* evt) {
     canvas_set_font(c, NULL, 20);
     canvas_set_text_color(c, tc);
     canvas_draw_text(c, tips, wcslen(tips), 20, r.h / 2);
+
+    canvas_get_text_metrics(c, &ascent, &descent, &line_height);
+    log_debug("text_metrics: %d %d %d\n", (int)ascent, (int)descent, (int)line_height);
   }
 
   vgcanvas_restore(vg);
