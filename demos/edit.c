@@ -81,7 +81,7 @@ ret_t application_init() {
   edit1 = create_edit(win, INPUT_TEXT, "text[3-32]", L"abc", 10, 10, 228, 30);
   widget_set_name(edit1, "edit1");
   edit_set_text_limit(edit1, 3, 32);
-  edit_set_action_text(edit1, "next");
+  edit_set_action_text(edit1, "Test");
   widget_on(edit1, EVT_IM_ACTION, on_action_event, NULL);
 
   edit_set_focus(edit1, TRUE);
