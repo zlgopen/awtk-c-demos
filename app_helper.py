@@ -10,7 +10,7 @@ class Helper:
         self.DEPENDS_LIBS = DEPENDS_LIBS
         return self;
     
-    def set_app_libs(self, APP_LIBS):
+    def set_libs(self, APP_LIBS):
         self.APP_LIBS = APP_LIBS 
         return self;
 
@@ -22,7 +22,7 @@ class Helper:
         self.DEPENDS_LIBS += DEPENDS_LIBS
         return self;
 
-    def add_app_libs(self, APP_LIBS):
+    def add_libs(self, APP_LIBS):
         self.APP_LIBS += APP_LIBS 
         return self;
     
@@ -34,7 +34,7 @@ class Helper:
         self.APP_CCFLAGS += APP_CCFLAGS;
         return self;
     
-    def add_ccflags(self, APP_LINKFLAGS):
+    def add_linkflags(self, APP_LINKFLAGS):
         self.APP_LINKFLAGS += APP_LINKFLAGS;
         return self;
 
