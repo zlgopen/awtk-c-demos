@@ -7,6 +7,7 @@
 *.idb
 *.obj
 *.exe
+*.pyc
 .sconsign.dblite
 lib
 tags
