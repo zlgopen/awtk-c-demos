@@ -17,6 +17,26 @@ class Helper:
     def set_dll_def(self, DEF_FILE):
         self.DEF_FILE = DEF_FILE;
         return self;
+    
+    def add_deps(self, DEPENDS_LIBS):
+        self.DEPENDS_LIBS += DEPENDS_LIBS
+        return self;
+
+    def add_app_libs(self, APP_LIBS):
+        self.APP_LIBS += APP_LIBS 
+        return self;
+    
+    def add_cpppath(self, APP_CPPPATH):
+        self.APP_CPPPATH += APP_CPPPATH;
+        return self;
+    
+    def add_ccflags(self, APP_CCFLAGS):
+        self.APP_CCFLAGS += APP_CCFLAGS;
+        return self;
+    
+    def add_ccflags(self, APP_LINKFLAGS):
+        self.APP_LINKFLAGS += APP_LINKFLAGS;
+        return self;
 
     def __init__(self, ARGUMENTS):
         APP_ROOT = os.path.normpath(os.getcwd())
@@ -25,14 +45,14 @@ class Helper:
         self.DEF_FILE = None
         self.DEPENDS_LIBS = []
         self.APP_ROOT = APP_ROOT
-        self.BUILD_SHARED = 'true'
+        self.BUILD_SHARED = True
         self.ARGUMENTS = ARGUMENTS
         self.AWTK_ROOT = self.getAwtkRoot()
         self.APP_BIN_DIR = os.path.join(APP_ROOT, 'bin')
         self.APP_LIB_DIR = os.path.join(APP_ROOT, 'lib')
         self.APP_SRC = os.path.join(APP_ROOT, 'src')
-        sys.path.insert(0, self.AWTK_ROOT)
 
+        sys.path.insert(0, self.AWTK_ROOT)
         import awtk_config as awtk
 
         self.awtk = awtk
@@ -43,8 +63,11 @@ class Helper:
         os.environ['APP_ROOT'] = self.APP_ROOT
         os.environ['BIN_DIR'] = self.APP_BIN_DIR
         os.environ['LIB_DIR'] = self.APP_LIB_DIR
+        
+        self.parseArgs(awtk, ARGUMENTS)
 
         print(ARGUMENTS)
+
     def saveUsesSdkInfo(self):
         awtk = self.awtk
         release_id = ''
@@ -116,8 +139,8 @@ class Helper:
         sys.exit(0)
 
     def parseArgs(self, awtk, ARGUMENTS):
-        BUILD_SHARED = 'true'
-        GEN_IDL_DEF = 'true'
+        BUILD_SHARED = True
+        GEN_IDL_DEF = True
         LCD_WIDTH = '320'
         LCD_HEIGHT = '480'
         APP_DEFAULT_FONT = 'default'
@@ -155,11 +178,11 @@ class Helper:
 
         SHARED = ARGUMENTS.get('SHARED', '')
         if len(SHARED) > 0 and SHARED.lower().startswith('f'):
-            self.BUILD_SHARED = 'false'
+            self.BUILD_SHARED = False
 
         IDL_DEF = ARGUMENTS.get('IDL_DEF', '')
         if len(IDL_DEF) > 0 and IDL_DEF.lower().startswith('f'):
-            GEN_IDL_DEF = 'false'
+            GEN_IDL_DEF = False
 
         APP_CCFLAGS = ' -DLCD_WIDTH=' + LCD_WIDTH + ' -DLCD_HEIGHT=' + LCD_HEIGHT + ' '
         APP_CCFLAGS = APP_CCFLAGS + ' -DAPP_DEFAULT_FONT=\\\"' + APP_DEFAULT_FONT + '\\\" '
@@ -173,25 +196,21 @@ class Helper:
             self.APP_ROOT+ '\\\" '
         os.environ['BUILD_SHARED'] = str(self.isBuildShared())
 
-        if GEN_IDL_DEF == 'true':
-            self.genIdlAndDef()
-
         APP_LINKFLAGS = ''
         AWTK_LIBS = self.AWTK_LIBS
         APP_CPPPATH = [self.APP_SRC]
         APP_LIBPATH = [self.APP_LIB_DIR]
         AWTK_CCFLAGS = awtk.CCFLAGS
-
-        if self.isBuildShared():
-            APP_LIBPATH = [self.APP_BIN_DIR, self.APP_LIB_DIR]
-            AWTK_LIBS = self.AWTK_SHARED_LIBS
-            self.copyAwtkSharedLib()
-
+        
         if platform.system() == 'Linux':
             APP_LINKFLAGS += ' -Wl,-rpath=' + self.APP_BIN_DIR + ' '
 
         if not self.isBuildShared() and hasattr(awtk, 'AWTK_CCFLAGS'):
             AWTK_CCFLAGS = awtk.AWTK_CCFLAGS
+        
+        if self.isBuildShared():
+            APP_LIBPATH = [self.APP_BIN_DIR, self.APP_LIB_DIR]
+            AWTK_LIBS = self.AWTK_SHARED_LIBS
 
         APP_TOOLS = None
         if hasattr(awtk, 'TOOLS_NAME') and awtk.TOOLS_NAME != '':
@@ -204,6 +223,17 @@ class Helper:
         self.APP_LIBPATH = APP_LIBPATH
         self.APP_CPPPATH = APP_CPPPATH
         self.APP_LINKFLAGS = APP_LINKFLAGS
+        self.GEN_IDL_DEF = GEN_IDL_DEF
+
+    def prepare(self):
+        if self.GEN_IDL_DEF:
+            self.genIdlAndDef()
+
+        if self.isBuildShared():
+            self.copyAwtkSharedLib()
+        
+        self.saveUsesSdkInfo()
+
 
     def getAwtkRoot(self):
         awtk_root = '../awtk'
@@ -217,9 +247,6 @@ class Helper:
 
     def call(self, DefaultEnvironment):
         awtk = self.awtk
-        self.parseArgs(awtk, self.ARGUMENTS)
-
-        self.saveUsesSdkInfo()
 
         CPPPATH = awtk.CPPPATH + self.APP_CPPPATH
         LINKFLAGS = awtk.LINKFLAGS + self.APP_LINKFLAGS
@@ -238,6 +265,7 @@ class Helper:
             LIBPATH += [os.path.join(os.path.abspath(iter['root']), 'lib')]
             LIBPATH += [os.path.join(os.path.abspath(iter['root']), 'bin')]
 
+        self.prepare();
         if hasattr(awtk, 'CC'):
             DefaultEnvironment(
                 CC=awtk.CC,
