@@ -1,3 +1,0 @@
-<window anim_hint="htranslate">
-  <button name="close" x="center" y="bottom:10" w="25%" h="30" text="Close"/>
-</window>
