@@ -32,6 +32,7 @@ env.Program(os.path.join(BIN_DIR, 'demo_progress_circle'), ['progress_circle.c',
 env.Program(os.path.join(BIN_DIR, 'demo_slide_menu'), ['slide_menu.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_slide_view'), ['slide_view.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_switch'), ['switch.c', 'assets.c'])
+env.Program(os.path.join(BIN_DIR, 'demo_switch_on_changed'), ['switch_on_changed.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_text_selector'), ['text_selector.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_time_clock'), ['time_clock.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_digit_clock'), ['digit_clock.c', 'assets.c'])
