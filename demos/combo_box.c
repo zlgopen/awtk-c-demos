@@ -34,7 +34,7 @@ ret_t application_init() {
   combo_box_set_selected_index(combo_box1, 1);
   widget_set_self_layout_params(combo_box1, "center", "middle:-30", "50%", "30");
 
-  combo_box_set_custom_open_popup(combo_box2, custom_open_popup);
+  combo_box_set_custom_open_popup(combo_box2, custom_open_popup, NULL);
   widget_set_self_layout_params(combo_box2, "center", "middle:30", "50%", "30");
 
   widget_layout(win);
