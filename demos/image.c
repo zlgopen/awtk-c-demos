@@ -52,6 +52,8 @@ ret_t application_init() {
 
   widget_set_children_layout(win, "default(r=3,c=3,m=2,s=2)");
   widget_layout(win);
+
+  return RET_OK;
 }
 
 ret_t application_exit() {
