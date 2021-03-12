@@ -63,5 +63,6 @@ env.Program(os.path.join(BIN_DIR, 'demo_label_chinese'), ['label_chinese.c', 'as
 env.Program(os.path.join(BIN_DIR, 'demo_inline_style'), ['inline_style.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_async_exec'), ['async_exec.c', 'exec_cmd_async.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_unload_font'), ['unload_font.c', 'assets.c'])
+env.Program(os.path.join(BIN_DIR, 'demo_auto_resize'), ['label_auto_resize.c', 'assets.c'])
 
 
