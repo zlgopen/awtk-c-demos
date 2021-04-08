@@ -28,12 +28,14 @@ typedef struct _decoding_info_t {
   bitmap_t* image;
   tk_mutex_t* mutex;
   tk_thread_t* thread;
+  bool_t auto_redraw;
 } decoding_info_t;
 
 static decoding_info_t* decoding_info_create(uint32_t w, uint32_t h, bitmap_format_t format) {
   decoding_info_t* decoding = TKMEM_ZALLOC(decoding_info_t);
   return_value_if_fail(decoding != NULL, NULL);
 
+  decoding->auto_redraw = TRUE;
   decoding->mutex = tk_mutex_create();
   decoding->color = color_init(0, 0, 0, 0xff);
   decoding->image = bitmap_create_ex(w, h, 0, format);
@@ -101,6 +103,20 @@ static ret_t copy_decoded_image(void* ctx, bitmap_t* image) {
 
 static decoding_info_t* s_decoding_info = NULL;
 
+static bool_t check_if_need_redraw(void* ctx) {
+  decoding_info_t* decoding = (decoding_info_t*)ctx;
+
+  return decoding->auto_redraw;
+}
+
+static ret_t on_auto_redraw_changed(void* ctx, event_t* e) {
+  value_change_event_t* evt = value_change_event_cast(e);
+  decoding_info_t* decoding = (decoding_info_t*)ctx;
+  decoding->auto_redraw = value_bool(&(evt->new_value));
+
+  return RET_OK;
+}
+
 static ret_t click_to_quit(void* ctx, event_t* e) {
   tk_quit();
   return RET_OK;
@@ -109,6 +125,7 @@ static ret_t click_to_quit(void* ctx, event_t* e) {
 ret_t application_init() {
   widget_t* ok = NULL;
   widget_t* image = NULL;
+  widget_t* auto_redraw = NULL;
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
   canvas_t* c = widget_get_canvas(win);
 
@@ -121,11 +138,18 @@ ret_t application_init() {
 
   image = mutable_image_create(win, 0, 0, win->w, win->h);
   mutable_image_set_prepare_image(image, copy_decoded_image, decoding);
+  mutable_image_set_need_redraw(image, check_if_need_redraw, decoding);
 
   ok = button_create(win, 0, 0, 0, 0);
   widget_set_text(ok, L"quit");
   widget_on(ok, EVT_CLICK, click_to_quit, NULL);
-  widget_set_self_layout_params(ok, "center", "button:60", "50%", "30");
+  widget_set_self_layout_params(ok, "center", "button:40", "50%", "30");
+  
+  auto_redraw = check_button_create(win, 0, 0, 0, 0);
+  widget_set_text(auto_redraw, L"auto_redraw");
+  widget_on(auto_redraw, EVT_VALUE_CHANGED, on_auto_redraw_changed, decoding);
+  widget_set_value(auto_redraw, TRUE);
+  widget_set_self_layout_params(auto_redraw, "center", "button:80", "50%", "30");
 
   widget_layout(win);
   tk_thread_start(decoding->thread);
