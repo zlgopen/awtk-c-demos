@@ -22,12 +22,14 @@
 #include "awtk.h"
 
 static ret_t on_click(void* ctx, event_t* e) {
-  log_debug("on_click\n");
+  widget_t* button = WIDGET(e->target);
+  log_debug("on_click: %s\n", button->name);
   return RET_OK;
 }
 
 static ret_t on_long_press(void* ctx, event_t* e) {
-  log_debug("on_long_press\n");
+  widget_t* button = WIDGET(e->target);
+  log_debug("on_long_press: %s\n", button->name);
   return RET_OK;
 }
 
@@ -37,8 +39,12 @@ ret_t application_init() {
 
   locale_info_change(locale_info(), "zh", "CN");
 
+  widget_set_name(ok, "ok");
   widget_set_tr_text(ok, "ok");
+  button_set_enable_long_press(ok, TRUE);
+  button_set_long_press_time(ok, 1000);
   widget_set_self_layout_params(ok, "center", "middle", "50%", "30");
+
   widget_on(ok, EVT_CLICK, on_click, NULL);
   widget_on(ok, EVT_LONG_PRESS, on_long_press, NULL);
 
