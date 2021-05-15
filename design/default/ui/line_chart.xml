@@ -1,0 +1,4 @@
+<window text="Canvas draw line chart" anim_hint="htranslate">
+  <canvas name="chart" x="10" y="10" w="-20" h="-60"/>
+  <button x="c" y="b:10" w="80" h="30" text="Close" on:click="quit()"/>
+</window>
