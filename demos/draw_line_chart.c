@@ -87,13 +87,13 @@ static ret_t line_chart_info_push(line_chart_info_t* info, float value) {
     }
   }
 
-  log_debug("%u %f %f\n", info->size, value, info->max);
+  /*log_debug("%u %f %f\n", info->size, value, info->max);*/
   info->data[info->size++] = value;
 
   return RET_OK;
 }
 
-static ret_t on_paint_event(void* ctx, event_t* evt) {
+static ret_t draw_line_chart(widget_t* canvas_widget, canvas_t* c, line_chart_info_t* info) {
   uint32_t i = 0;
   float x = 0;
   float y = 0;
@@ -106,10 +106,7 @@ static ret_t on_paint_event(void* ctx, event_t* evt) {
   int32_t right_margin = 10;
   int32_t top_margin = 30;
   int32_t bottom_margin = 30;
-  widget_t* canvas_widget = WIDGET(evt->target);
-  canvas_t* c = paint_event_cast(evt)->c;
   vgcanvas_t* vg = canvas_get_vgcanvas(c);
-  line_chart_info_t* info = (line_chart_info_t*)ctx;
   float y_range = info->max;
   rect_t r = rect_init(canvas_widget->x, canvas_widget->y, canvas_widget->w, canvas_widget->h);
 
@@ -202,6 +199,20 @@ static ret_t on_paint_event(void* ctx, event_t* evt) {
   canvas_draw_text_in_rect(c, info->title, wcslen(info->title), &r);
 
   wstr_reset(&wstr);
+
+  return RET_OK;
+}
+
+static ret_t on_paint_event(void* ctx, event_t* evt) {
+  uint64_t cost = 0;
+  uint64_t start_time = time_now_ms();
+  canvas_t* c = paint_event_cast(evt)->c;
+  widget_t* canvas_widget = WIDGET(evt->target);
+  line_chart_info_t* info = (line_chart_info_t*)ctx;
+  
+  draw_line_chart(canvas_widget, c, info);
+  cost = time_now_ms() - start_time;
+  log_debug("paint cost: %d ms\n", (int32_t)cost);
 
   return RET_OK;
 }
