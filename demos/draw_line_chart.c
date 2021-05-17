@@ -21,6 +21,7 @@
 
 #include "awtk.h"
 #define MAX_VALUE 1000
+#define MAX_DATA_NR 1000
 
 typedef struct _line_chart_info_t {
   float max;
@@ -224,13 +225,25 @@ static ret_t line_chart_info_gen_data(line_chart_info_t* info, uint32_t nr) {
   return RET_OK;
 }
 
+static ret_t on_timer_redraw(const timer_info_t* info) {
+  widget_t* canvas = WIDGET(info->ctx);
+  line_chart_info_t* data = (line_chart_info_t*)widget_get_prop_pointer(canvas, "data"); 
+
+  line_chart_info_gen_data(data, MAX_DATA_NR);
+  widget_invalidate(canvas, NULL);
+
+  return RET_REPEAT;
+}
+
 ret_t application_init() {
   widget_t* win = window_open("line_chart");
   widget_t* canvas = widget_lookup(win, "chart", TRUE);
   line_chart_info_t* info = line_chart_info_create(2048, L"Canvas demo");
 
-  line_chart_info_gen_data(info, 500);
+  line_chart_info_gen_data(info, MAX_DATA_NR);
+  widget_add_timer(canvas, on_timer_redraw, 1000);
 
+  widget_set_prop_pointer(canvas, "data", info);
   widget_on(canvas, EVT_PAINT, on_paint_event, info);
   widget_on(canvas, EVT_DESTROY, on_canvas_destroy, info);
 
