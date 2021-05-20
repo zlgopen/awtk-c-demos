@@ -74,7 +74,12 @@ static ret_t on_paint(void* ctx, event_t* e) {
 
   vgcanvas_restore(vg);
 
-  log_debug("on_paint\n");
+  log_debug("EVT_PAINT\n");
+  return RET_OK;
+}
+
+static ret_t on_debug(void* ctx, event_t* e) {
+  log_debug("event:%s\n", (const char*)ctx);
   return RET_OK;
 }
 
@@ -83,6 +88,10 @@ ret_t application_init() {
 
   widget_on(win, EVT_PAINT, on_paint, NULL);
   widget_add_timer(win, on_timer, 1000);
+  
+  widget_on(win, EVT_BEFORE_PAINT, on_debug, "EVT_BEFORE_PAINT");
+  widget_on(win, EVT_AFTER_PAINT, on_debug, "EVT_AFTER_PAINT");
+  widget_on(win, EVT_PAINT_DONE, on_debug, "EVT_PAINT_DONE");
 
   return RET_OK;
 }
