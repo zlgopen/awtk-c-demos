@@ -65,5 +65,6 @@ env.Program(os.path.join(BIN_DIR, 'demo_async_exec'), ['async_exec.c', 'exec_cmd
 env.Program(os.path.join(BIN_DIR, 'demo_unload_font'), ['unload_font.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_auto_resize'), ['label_auto_resize.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_draw_line_chart'), ['draw_line_chart.c', 'assets.c'])
+env.Program(os.path.join(BIN_DIR, 'demo_paint'), ['paint.c', 'assets.c'])
 
 
