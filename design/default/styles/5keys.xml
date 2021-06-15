@@ -1,0 +1,67 @@
+
+<button>
+  <style name="default" border_color="#a0a0a0"  text_color="black">
+    <normal     bg_color="#f0f0f0" />
+    <pressed    bg_color="#c0c0c0" x_offset="1" y_offset="1"/>
+    <over       bg_color="#e0e0e0" />
+    <focused    bg_color="#e0e0e0" border_color="red"/>
+    <disable    bg_color="gray" text_color="#d0d0d0" />
+  </style>
+</button>
+
+<slider>
+  <style>
+    <normal bg_color="#a0a0a0" fg_color="blue" border_color="#ffd700"/>
+    <pressed bg_color="#a0a0a0" fg_color="blue" border_color="#ffa700"/>
+    <over bg_color="#a0a0a0" fg_color="blue" border_color="#ffe700"/>    
+    <focused bg_color="#a0a0a0" fg_color="blue" border_color="#ffff00"/>    
+  </style>
+</slider>
+
+<switch>
+  <style name="default">
+    <normal  bg_image="switch" />
+    <focused bg_image="switch" border_color="red"/>
+  </style>
+  <style name="rounded">
+    <normal  bg_image="switch" round_radius="11"/>
+    <focused bg_image="switch" round_radius="11" border_color="red"/>
+  </style>
+  <style name="no_image">
+    <normal  bg_color="#828282" selected_bg_color="#338fff" fg_color="#ffffff" round_radius="11"/>
+    <focused bg_color="#828282" selected_bg_color="#338fff" fg_color="#ffffff" round_radius="11" border_color="red"/>
+  </style>
+</switch>
+
+<radio_button>
+  <style name="default" bg_color="#f0f0f0" text_color="black" icon_at="left">
+    <normal  icon="radio_unchecked" />
+    <pressed icon="radio_unchecked" />
+    <over    icon="radio_unchecked" text_color="green"/>
+    <focused icon="radio_unchecked" text_color="green" border_color="red"/>
+    <normal_of_checked icon="radio_checked" text_color="red"/>
+    <pressed_of_checked icon="radio_checked" text_color="red"/>
+    <over_of_checked icon="radio_checked" text_color="green"/>
+    <focused_of_checked icon="radio_checked" text_color="green" border_color="red"/>
+  </style>
+</radio_button>
+
+<check_button bg_color="#f0f0f0" text_color="black">
+  <style name="default" icon_at="left">
+    <normal  icon="unchecked" />
+    <pressed icon="unchecked" />
+    <over    icon="unchecked" text_color="green"/>
+    <focused icon="unchecked" text_color="green" border_color="red"/>
+    <normal_of_checked icon="checked" text_color="blue"/>
+    <pressed_of_checked icon="checked" text_color="blue"/>
+    <over_of_checked icon="checked" text_color="green"/>
+    <focused_of_checked icon="checked" text_color="green" border_color="red"/>
+  </style>
+</check_button>
+
+<text_selector>
+  <style name="default" fg_color="#a0a0a0"  text_color="black" text_align_h="center">
+    <normal     bg_color="#f0f0f0"/>
+    <focused bg_color="#f0f0f0" border_color="red"/>
+  </style>
+</text_selector>
