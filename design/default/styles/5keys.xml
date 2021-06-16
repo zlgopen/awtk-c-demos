@@ -61,7 +61,7 @@
 
 <text_selector>
   <style name="default" fg_color="#a0a0a0"  text_color="black" text_align_h="center">
-    <normal     bg_color="#f0f0f0"/>
+    <normal  bg_color="#f0f0f0"/>
     <focused bg_color="#f0f0f0" border_color="red"/>
   </style>
 </text_selector>
