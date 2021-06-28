@@ -5,4 +5,4 @@ helper = app.Helper(ARGUMENTS);
 helper.call(DefaultEnvironment)
 
 SConscriptFiles = ['demos/SConscript']
-SConscript(SConscriptFiles)
+helper.SConscript(SConscriptFiles)
