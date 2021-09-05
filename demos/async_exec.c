@@ -51,7 +51,7 @@ ret_t application_init() {
 
   widget_layout(win);
 
-  async_call_init(5, 1);
+  async_call_init_ex(5, 1);
 
   return RET_OK;
 }
