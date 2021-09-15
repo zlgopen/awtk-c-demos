@@ -33,6 +33,18 @@ static ret_t on_long_press(void* ctx, event_t* e) {
   return RET_OK;
 }
 
+static ret_t on_pointer_leave(void* ctx, event_t* e) {
+  widget_t* button = WIDGET(e->target);
+  log_debug("on_pointer_leave: %s\n", button->name);
+  return RET_OK;
+}
+
+static ret_t on_pointer_up(void* ctx, event_t* e) {
+  widget_t* button = WIDGET(e->target);
+  log_debug("on_pointer_up: %s\n", button->name);
+  return RET_OK;
+}
+
 ret_t application_init() {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
   widget_t* ok = button_create(win, 0, 0, 0, 0);
@@ -47,6 +59,8 @@ ret_t application_init() {
 
   widget_on(ok, EVT_CLICK, on_click, NULL);
   widget_on(ok, EVT_LONG_PRESS, on_long_press, NULL);
+  widget_on(ok, EVT_POINTER_LEAVE, on_pointer_leave, NULL);
+  widget_on(ok, EVT_POINTER_UP, on_pointer_up, NULL);
 
   widget_layout(win);
 
