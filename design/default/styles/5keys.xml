@@ -15,6 +15,7 @@
     <pressed bg_color="#a0a0a0" fg_color="blue" border_color="#ffa700"/>
     <over bg_color="#a0a0a0" fg_color="blue" border_color="#ffe700"/>    
     <focused bg_color="#a0a0a0" fg_color="blue" border_color="#ffff00"/>    
+    <activated bg_color="#a0a0a0" fg_color="blue" border_color="#ff0000"/>    
   </style>
 </slider>
 
@@ -63,5 +64,6 @@
   <style name="default" fg_color="#a0a0a0"  text_color="black" text_align_h="center">
     <normal  bg_color="#f0f0f0"/>
     <focused bg_color="#f0f0f0" border_color="red"/>
+    <activated bg_color="#f0f0f0" border_color="green"/>
   </style>
 </text_selector>
