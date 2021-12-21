@@ -35,7 +35,7 @@ static ret_t on_test_click(void* ctx, event_t* e) {
   widget_t* z = widget_lookup(win, "Zzzzzz", TRUE);
   widget_t* checked = check_button_get_checked_button(z);
   
-  log_debug("on_test_click: %s is checked %d\n", checked->name, widget_get_value(checked));
+  log_debug("on_test_click: %s is checked %d\n", checked->name, widget_get_value_int(checked));
 
   return RET_OK;
 }

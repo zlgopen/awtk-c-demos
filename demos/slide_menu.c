@@ -27,7 +27,7 @@ static ret_t on_button_click(void* ctx, event_t* e) {
 }
 
 static ret_t on_current_changed(void* ctx, event_t* e) {
-  log_debug("current = %d\n", widget_get_value(WIDGET(e->target)));
+  log_debug("current = %d\n", widget_get_value_int(WIDGET(e->target)));
 
   return RET_OK;
 }

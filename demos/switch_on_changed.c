@@ -26,7 +26,7 @@ static ret_t on_will_change(void* ctx, event_t* e) {
   widget_t* target = WIDGET(e->target);
   widget_t* sw1 = widget_lookup(win, "sw1", TRUE);
   widget_t* sw2 = widget_lookup(win, "sw2", TRUE);
-  bool_t equal = widget_get_value(sw1) == widget_get_value(sw2);
+  bool_t equal = widget_get_value_int(sw1) == widget_get_value_int(sw2);
 
   if (sw1 == target) {
     if(equal) {

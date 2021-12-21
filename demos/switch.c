@@ -22,7 +22,10 @@
 #include "awtk.h"
 
 static ret_t on_changed(void* ctx, event_t* e) {
-  log_debug("on_changed\n");
+  value_change_event_t* evt =  value_change_event_cast(e);
+  
+  log_debug("on_changed %d => %d\n", value_int(&(evt->old_value)), value_int(&(evt->new_value)));
+
   return RET_OK;
 }
 

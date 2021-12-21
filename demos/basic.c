@@ -48,8 +48,8 @@ static ret_t on_close(void* ctx, event_t* e) {
   widget_t* bar1 = widget_child(win, "bar1");
   widget_t* bar2 = widget_child(win, "bar2");
 
-  log_debug("bar1->value=%d\n", (int)(widget_get_value(bar1)));
-  log_debug("bar2->value=%d\n", (int)(widget_get_value(bar2)));
+  log_debug("bar1->value=%d\n", (int)(widget_get_value_int(bar1)));
+  log_debug("bar2->value=%d\n", (int)(widget_get_value_int(bar2)));
 
   tk_quit();
 
