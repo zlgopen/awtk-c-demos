@@ -1,28 +1,25 @@
 <window anim_hint="htranslate" 
   text="Demo 5keys">
-
-  <row x="0" y="40" w="100%" h="30" children_layout="default(r=1,c=3,xm=2,s=10)">
+  <row x="0" y="0" w="100%" h="30" children_layout="default(r=1,c=3,xm=2,s=10)">
     <button name="inc" text="Inc" focusable="true" focus="true"/>
     <button name="reset" text="Reset" focusable="true"/>
     <button name="dec" text="Dec" focusable="true" style:focused:text_color="red"/>
   </row>
 
-  <row x="0" y="80" w="100%" h="30" children_layout="default(r=1,c=3,xm=2,s=10)">
+  <row x="0" y="40" w="100%" h="30" children_layout="default(r=1,c=3,xm=2,s=10)">
     <edit name="value" input_type="uint" text="100" open_im_when_focused="false"/>
     <edit input_type="float" text="100" step="0.1" open_im_when_focused="false"/>
     <edit input_type="date" text="2021/01/01" open_im_when_focused="false"/>
   </row>
 
-  <combo_box readonly="true" x="5" y="120" w="45%" h="30" text="red" 
+  <combo_box readonly="true" x="5" y="80" w="45%" h="30" text="red" 
     options="red;green;blue"/>
-  <combo_box readonly="true" x="right:5" y="120" w="45%" h="30" text="ok" 
+  <combo_box readonly="true" x="right:5" y="80" w="45%" h="30" text="ok" 
     options="1:ok;2:cancel;"/>
 
+  <slider name="slider1" x="10" y="120" w="-20" h="20" value="40" focusable="true"/>
 
-  <slider name="slider1" x="10" y="160" w="-20" h="20" value="40" focusable="true"/>
-  <slider name="slider2" x="10" y="200" w="-20" h="16" value="40" show_text="true" focusable="true"/>
-
-  <row x="0" y="240" w="-50" h="90" children_layout="default(r=1,c=2,m=2)">
+  <row x="0" y="150" w="-50" h="90" children_layout="default(r=1,c=2,m=2)">
     <column children_layout="default(r=3,c=1,ym=2,s=10)" >
       <check_button name="r1" text="Book" focusable="true"/>
       <check_button name="r2" text="Food" focusable="true"/>
@@ -36,7 +33,7 @@
     </column>
   </row>
 
-  <row x="0" y="350" w="-50" h="90" children_layout="default(r=1,c=2,m=2)">
+  <row x="0" y="250" w="-50" h="90" children_layout="default(r=1,c=2,m=2)">
     <text_selector options="2000-2050" visible_nr="3" text="2018" focusable="true"/>
     <column >
       <switch x="10" y="0" w="60" h="22" focusable="true"/>
@@ -44,5 +41,17 @@
       <switch x="10" y="60" w="44" h="22" style="no_image" focusable="true"/>
     </column>
   </row>
+
+    <edit x="5" y="340" w="200" h="30" input_type="int" tips="Please enter your text" keyboard="kb_int_5keys"/>
+
+  <list_view name="list_view" x="5" y="375" w="200" h="90" item_height="30" style.normal.border_color="gray">
+    <scroll_view name="scroll_view" x="0" y="0" w="-10" h="100%">
+     <list_item style="even_clickable" name="list_item1" text="Clone Self" focusable="true" style.focused.bg_color="gray"/>
+      <list_item style="odd_clickable" name="list_item2" text="Clone Self" focusable="true" style.focused.bg_color="gray"/>
+      <list_item style="even_clickable" name="list_item3" text="Remove Self" focusable="true" style.focused.bg_color="gray"/>
+      <list_item style="odd_clickable" name="list_item4" text="Remove Self" focusable="true" style.focused.bg_color="gray"/>
+    </scroll_view>
+    <scroll_bar_m name="scroll_bar" x="r" y="0" w="10" h="100%"/>
+  </list_view>
 
 </window>

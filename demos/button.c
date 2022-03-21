@@ -62,6 +62,8 @@ ret_t application_init() {
   widget_on(ok, EVT_POINTER_LEAVE, on_pointer_leave, NULL);
   widget_on(ok, EVT_POINTER_UP, on_pointer_up, NULL);
 
+  widget_set_style_color(window_manager_get_top_main_window(window_manager()), "bg_color", 0xff0000ff);
+
   widget_layout(win);
 
   return RET_OK;

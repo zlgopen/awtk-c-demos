@@ -1,0 +1,23 @@
+<keyboard theme="keyboard" x="0" y="bottom" w="100%" h="40%" grab_keys="true">
+  <column style="placeholder" x="0" y="0" w="100%" h="30">
+    <button name="close" focusable="true" style="close" x="r:1" y="1" w="28" h="28" text="x" style.focused.border_color="blue"/>
+  </column>
+  <pages x="0" y="30" w="100%" h="-30" active="0">
+    <view name="upper" x="0" y="0" w="100%" h="100%" children_layout="default(r=4,c=3,s=2,m=4)">
+        <button repeat="300" name="1" focusable="true" text="1" style.focused.border_color="blue"/>
+        <button repeat="300" name="2" focusable="true" text="2" style.focused.border_color="blue"/>
+        <button repeat="300" name="3" focusable="true" text="3" style.focused.border_color="blue"/>
+        <button repeat="300" name="4" focusable="true" text="4" style.focused.border_color="blue"/>
+        <button repeat="300" name="5" focusable="true" text="5" style.focused.border_color="blue"/>
+        <button repeat="300" name="6" focusable="true" text="6" style.focused.border_color="blue"/>
+        <button repeat="300" name="7" focusable="true" text="7" style.focused.border_color="blue"/>
+        <button repeat="300" name="8" focusable="true" text="8" style.focused.border_color="blue"/>
+        <button repeat="300" name="9" focusable="true" text="9" style.focused.border_color="blue"/>
+        <button repeat="300" name="-" focusable="true" style="highlight" text="-" style.focused.border_color="blue"/>
+        <button repeat="300" name="0" focusable="true" text="0" style.focused.border_color="blue"/>
+        <button repeat="300" name="key:backspace" focusable="true" style="highlight" style.focused.border_color="blue">
+          <image draw_type="icon" image="backspace" x="center" y="middle" w="100%" h="100%"/>
+        </button>
+    </view>
+  </pages>
+</keyboard>
