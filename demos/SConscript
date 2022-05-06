@@ -4,6 +4,7 @@ import sys
 env=DefaultEnvironment().Clone()
 BIN_DIR=os.environ['BIN_DIR'];
 
+env.Program(os.path.join(BIN_DIR, 'demo_clear_bg'), ['clear_bg.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_context_menu'), ['context_menu.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_label'), ['label.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_button'), ['button.c', 'assets.c'])
