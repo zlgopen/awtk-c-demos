@@ -3,7 +3,7 @@
  * Author: AWTK Develop Team
  * Brief:  double click demo
  *
- * Copyright (c) 2018 - 2021  Guangzhou ZHIYUAN Electronics Co.,Ltd.
+ * Copyright (c) 2018 - 2022  Guangzhou ZHIYUAN Electronics Co.,Ltd.
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -15,7 +15,7 @@
 /**
  * History:
  * ================================================================
- * 2018-08-16 Li XianJing <xianjimli@hotmail.com> created
+ * 2022-06-15 Li XianJing <xianjimli@hotmail.com> created
  *
  */
 
