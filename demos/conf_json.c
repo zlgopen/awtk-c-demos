@@ -1,9 +1,9 @@
 ﻿/**
  * File:   conf_json.c
  * Author: AWTK Develop Team
- * Brief:  app conf demo
+ * Brief:  conf_json demo
  *
- * Copyright (c) 2020 - 2021  Guangzhou ZHIYUAN Electronics Co.,Ltd.
+ * Copyright (c) 2018 - 2021  Guangzhou ZHIYUAN Electronics Co.,Ltd.
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -15,103 +15,30 @@
 /**
  * History:
  * ================================================================
- * 2020-06-07 Li XianJing <xianjimli@hotmail.com> created
+ * 2022-06-22 Li XianJing <xianjimli@hotmail.com> created
  *
  */
 
 #include "awtk.h"
-#include "conf_io/app_conf_init_json.h"
-
-static ret_t on_quit(void* ctx, event_t* e) {
-  tk_quit();
-  return RET_OK;
-}
-
-static ret_t window_main_open(void) {
-  widget_t* win = window_create(NULL, 0, 0, 0, 0);
-  widget_t* quit = button_create(win, 0, 0, 0, 0);
-
-  locale_info_change(locale_info(), "zh", "CN");
-
-  widget_set_tr_text(quit, "quit");
-  widget_set_self_layout_params(quit, "center", "middle", "50%", "30");
-  widget_on(quit, EVT_CLICK, on_quit, NULL);
-
-  widget_layout(win);
-
-  return RET_OK;
-}
-
-static ret_t app_conf_changed(void* ctx, event_t* e) {
-  prop_change_event_t* evt = prop_change_event_cast(e);
-
-  log_debug("%s changed\n", evt->name);
-
-  return RET_OK;
-}
+#include "conf_io/conf_json.h"
 
 ret_t application_init() {
-  bool_t on = 0;
-  int32_t port = 0;
-  double timeout = 0;
-  const char* name = NULL;
-
-  app_conf_init_json("conf");
-  app_conf_on_changed(app_conf_changed, NULL);
-
-  app_conf_set_bool("wifi.on", TRUE);
-  assert(app_conf_exist("wifi.on"));
-
-  app_conf_set_str("wifi.name", "awtk");
-  assert(app_conf_exist("wifi.name"));
-
-  app_conf_set_str("wifi.password", "123123");
-  assert(app_conf_exist("wifi.password"));
-
-  app_conf_remove("wifi.password");
-  assert(!app_conf_exist("wifi.password"));
-
-  app_conf_set_int("server.port", 8080);
-  assert(app_conf_exist("server.port"));
-
-  app_conf_set_double("server.timeout", 1.0);
-  assert(app_conf_exist("server.timeout"));
-
-  on = app_conf_get_bool("wifi.on", FALSE);
-  assert(on == TRUE);
-
-  port = app_conf_get_int("server.port", 0);
-  assert(port == 8080);
-
-  timeout = app_conf_get_double("server.timeout", 0);
-  assert((timeout - 1.0) < 0.0001);
-
-  name = app_conf_get_str("wifi.name", NULL);
-  assert(tk_str_eq(name, "awtk"));
+  tk_object_t* doc = conf_json_load("./test.json", TRUE);
+  tk_object_set_prop_str(doc, "name", "awtk");
+  tk_object_set_prop_int(doc, "age", 100);
+  conf_json_save_as(doc, "./test.json");
+  TK_OBJECT_UNREF(doc);
   
-  app_conf_set_str("network.eth0.ip", "192.169.0.100");
-  app_conf_set_str("network.eth0.gateway", "192.169.0.1");
-  app_conf_set_str("network.eth0.mask", "255.255.255.0");
-  
-  app_conf_set_str("network.eth1.ip", "192.169.0.200");
-  app_conf_set_str("network.eth1.gateway", "192.169.0.1");
-  app_conf_set_str("network.eth1.mask", "255.255.255.0");
-  
-  app_conf_set_str("network.eth2.ip", "192.169.0.150");
-  app_conf_set_str("network.eth2.gateway", "192.169.0.1");
-  app_conf_set_str("network.eth2.mask", "255.255.255.0");
-  
-  const char* ip0 = app_conf_get_str("network.[0].ip", NULL);
-  const char* ip1 = app_conf_get_str("network.[1].ip", NULL);
-  const char* ip2 = app_conf_get_str("network.[2].ip", NULL);
+  doc = conf_json_load("./test.json", TRUE);
 
-  app_conf_save();
+  log_debug("name:%s\n", tk_object_get_prop_str(doc, "name"));
+  log_debug("age:%d\n", tk_object_get_prop_int(doc, "age", 0));
+  TK_OBJECT_UNREF(doc);
 
-  return window_main_open();
+  return RET_OK;
 }
 
 ret_t application_exit() {
-  app_conf_deinit();
   log_debug("application_exit\n");
   return RET_OK;
 }
