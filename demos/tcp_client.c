@@ -1,7 +1,7 @@
 ﻿/**
  * File:   tcp_client.c
  * Author: AWTK Develop Team
- * Brief:  button demo
+ * Brief:  tcp client demo
  *
  * Copyright (c) 2018 - 2021  Guangzhou ZHIYUAN Electronics Co.,Ltd.
  *

@@ -71,8 +71,8 @@ env.Program(os.path.join(BIN_DIR, 'demo_auto_resize'), ['label_auto_resize.c', '
 env.Program(os.path.join(BIN_DIR, 'demo_draw_line_chart'), ['draw_line_chart.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_paint'), ['paint.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_5keys'), ['5keys.c', 'assets.c'])
-env.Program(os.path.join(BIN_DIR, 'demo_tcp_client'), ['tcp_client.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_confirm_close'), ['confirm_close.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_conf_json'), ['conf_json.c', 'assets.c'])
+env.Program(os.path.join(BIN_DIR, 'demo_tcp_server'), ['tcp_server.c', 'assets.c'])
 
 
