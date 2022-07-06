@@ -19,6 +19,7 @@
  *
  */
 
+#include "tkc/path.h"
 #include "awtk.h"
 
 static ret_t on_click(void* ctx, event_t* e) {
@@ -36,6 +37,7 @@ static ret_t on_click_theme(void* ctx, event_t* e) {
 
 ret_t application_init() {
   window_open("system_bar");
+  char res_root[MAX_PATH + 1] = {0};
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
   widget_t* foo = button_create(win, 0, 0, 0, 0);
   widget_t* bar = button_create(win, 0, 0, 0, 0);
@@ -58,7 +60,9 @@ ret_t application_init() {
   widget_set_self_layout_params(dark_theme, "center:-80", "bottom:20", "128", "30");
   widget_on(dark_theme, EVT_CLICK, on_click_theme, (void*)"dark");
 
-  assets_managers_set_applet_res_root("applets/");
+  path_prepend_app_root(res_root, "applets");
+  log_debug("applte res root:%s\n", res_root);
+  assets_managers_set_applet_res_root(res_root);
 
   return RET_OK;
 }
