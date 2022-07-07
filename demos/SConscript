@@ -75,5 +75,6 @@ env.Program(os.path.join(BIN_DIR, 'demo_confirm_close'), ['confirm_close.c', 'as
 env.Program(os.path.join(BIN_DIR, 'demo_conf_json'), ['conf_json.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_tcp_server'), ['tcp_server.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_applets'), ['applets.c', 'assets.c'])
+env.Program(os.path.join(BIN_DIR, 'demo_chinese'), ['chinese.c', 'assets.c'])
 
 
