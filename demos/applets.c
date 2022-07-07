@@ -35,9 +35,10 @@ static ret_t on_click_theme(void* ctx, event_t* e) {
   return RET_OK;
 }
 
+static char res_root[MAX_PATH + 1] = {0};
+
 ret_t application_init() {
   window_open("system_bar");
-  char res_root[MAX_PATH + 1] = {0};
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
   widget_t* foo = button_create(win, 0, 0, 0, 0);
   widget_t* bar = button_create(win, 0, 0, 0, 0);

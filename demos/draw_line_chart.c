@@ -21,7 +21,7 @@
 
 #include "awtk.h"
 #define MAX_VALUE 1000
-#define MAX_DATA_NR 1000
+#define MAX_DATA_NR 2000
 
 typedef struct _line_chart_info_t {
   float max;
