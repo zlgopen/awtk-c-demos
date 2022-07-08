@@ -1,0 +1,11 @@
+<window>
+  <button name="open" text="Open Device" x="10" y="100" w="160" h="36" />
+  <edit name="device" x="180" y="100" w="-200" h="36" text="/dev/ttys032" />
+
+  <button name="send" text="Send Message" x="10" y="150" w="160" h="36" />
+  <edit name="send_msg" x="180" y="150" w="-200" h="36" text="hello serial" />
+
+  <label name="recv_msg" x="c" y="b:100" w="90%" h="100" />
+
+  <serial name="serial" />
+</window>
