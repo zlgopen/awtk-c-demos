@@ -1,3 +1,3 @@
 #include "awtk.h"
-#include "assets.inc"
+#include "../res/assets.inc"
 
