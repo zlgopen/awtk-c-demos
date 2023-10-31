@@ -21,9 +21,12 @@
 
 #include "awtk.h"
 
+#define WIDGET_CUSTOM_PROP_INDEX "index"
+
 static ret_t on_click(void* ctx, event_t* e) {
   widget_t* item = WIDGET(ctx);
   dialog_info("info", item->name);
+  log_debug("clicked item index=%d\n", widget_get_prop_int(item, WIDGET_CUSTOM_PROP_INDEX, -1));
   return RET_OK;
 }
 
@@ -44,6 +47,9 @@ ret_t application_init() {
     widget_set_text_utf8(item, text);
     widget_set_name(item, text);
     widget_on(item, EVT_CLICK, on_click, item);
+
+    /*demo custom prop*/
+    widget_set_prop_int(item, WIDGET_CUSTOM_PROP_INDEX, i);
   }
 
   return RET_OK;
