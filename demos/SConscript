@@ -78,5 +78,6 @@ env.Program(os.path.join(BIN_DIR, 'demo_tcp_server'), ['tcp_server.c', 'assets.c
 env.Program(os.path.join(BIN_DIR, 'demo_applets'), ['applets.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_chinese'), ['chinese.c', 'assets.c'])
 env.Program(os.path.join(BIN_DIR, 'demo_serial'), ['serial.c', 'assets.c'])
+env.Program(os.path.join(BIN_DIR, 'demo_opengl'), ['opengl.c', 'assets.c'], LIBS=env['LIBS'] + ['glad'])
 
 
