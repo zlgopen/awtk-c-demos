@@ -34,7 +34,7 @@
 #include <SDL_opengl.h>
 #include <SDL_opengl_glext.h>
 #endif /*IOS*/
-#define  opengl_init
+#define  opengl_init()
 #else
 #include "glad/glad.h"
 #define opengl_init gladLoadGL
