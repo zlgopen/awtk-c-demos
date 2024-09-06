@@ -183,6 +183,16 @@ static ret_t on_close(void* ctx, event_t* e) {
   return RET_OK;
 }
 
+static ret_t on_dialog(void* ctx, event_t* e) {
+  dialog_info("Info", "It is a dialog.");
+  return RET_OK;
+}
+
+static ret_t on_open(void* ctx, event_t* e) {
+  window_open("basic");
+
+  return RET_OK;
+}
 
 static ret_t on_paint(void* ctx, event_t* e) {
   gl_info_t* info = &g_gl_info;
@@ -203,10 +213,20 @@ ret_t application_init() {
   widget_t* system_bar = window_open("system_bar");
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
   widget_t* close = button_create(win, 0, 0, 0, 0);
+  widget_t* open = button_create(win, 0, 0, 0, 0);
+  widget_t* dialog = button_create(win, 0, 0, 0, 0);
 
   (void)system_bar;
   widget_set_text_utf8(close, "Close");
-  widget_set_self_layout_params(close, "c", "b:10", "60", "30");
+  widget_set_self_layout_params(close, "c:-100", "b:10", "60", "30");
+  
+  widget_set_text_utf8(open, "Window");
+  widget_set_self_layout_params(open, "c:100", "b:10", "60", "30");
+  widget_on(open, EVT_CLICK, on_open, win);
+  
+  widget_set_text_utf8(dialog, "Dialog");
+  widget_set_self_layout_params(dialog, "c", "b:10", "60", "30");
+  widget_on(dialog, EVT_CLICK, on_dialog, win);
 
 #if defined(WITH_GPU_GL)
   glview_init(&g_gl_info);
