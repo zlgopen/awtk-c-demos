@@ -21,31 +21,9 @@
 
 #include "awtk.h"
 
-#if defined(WITH_GPU_GL)
-
-#ifdef WITHOUT_GLAD
-#include <SDL.h>
-#define GL_GLEXT_PROTOTYPES 1
-#ifdef IOS
-#include <OpenGLES/gltypes.h>
-#include <OpenGLES/ES2/gl.h>
-#include <OpenGLES/ES2/glext.h>
-#else
-#include <SDL_opengl.h>
-#include <SDL_opengl_glext.h>
-#endif /*IOS*/
-#define  opengl_init()
-#else
-#include "glad/glad.h"
-#ifdef WIN32
-#define opengl_init gladLoadGL
-#else
-#define  opengl_init()
-#endif
-#endif /*WITHOUT_GLAD*/
-
 /*本示例中，OpenGL代码源于：https://learnopengl.com */
 
+#ifdef WITH_GPU_GL
 static const char* s_vertexShaderSource =
     "#version 330 core\n"
     "layout (location = 0) in vec3 aPos;\n"
