@@ -200,16 +200,16 @@ ret_t application_init() {
   
   widget_set_text_utf8(open, "Window");
   widget_set_self_layout_params(open, "c:100", "b:10", "60", "30");
-  widget_on(open, EVT_CLICK, on_open, win);
   
   widget_set_text_utf8(dialog, "Dialog");
   widget_set_self_layout_params(dialog, "c", "b:10", "60", "30");
-  widget_on(dialog, EVT_CLICK, on_dialog, win);
 
 #if defined(WITH_GPU_GL)
   glview_init(&g_gl_info);
   widget_on(win, EVT_PAINT, on_paint, win);
   widget_on(close, EVT_CLICK, on_close, win);
+  widget_on(open, EVT_CLICK, on_open, win);
+  widget_on(dialog, EVT_CLICK, on_dialog, win);
 #endif
 
   return RET_OK;
